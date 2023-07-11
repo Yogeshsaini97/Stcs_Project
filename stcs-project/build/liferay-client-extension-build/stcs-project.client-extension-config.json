@@ -1,0 +1,15 @@
+{
+  ":configurator:policy" : "force",
+  "com.liferay.client.extension.type.configuration.CETConfiguration~stcs-project" : {
+    "baseURL" : "${portalURL}/o/stcs-project",
+    "description" : "",
+    "dxp.lxc.liferay.com.virtualInstanceId" : "default",
+    "name" : "Stcs Project",
+    "projectName" : "stcs-project",
+    "properties" : [ ],
+    "sourceCodeURL" : "",
+    "type" : "customElement",
+    "typeSettings" : [ "friendlyURLMapping=stcs-project-ok", "instanceable=false", "urls=index-c9a253da.js", "useESM=true", "htmlElementName=stcs-project", "cssURLs=", "portletCategoryName=category.client-extensions" ],
+    "webContextPath" : "/stcs-project"
+  }
+}
