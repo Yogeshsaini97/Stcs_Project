@@ -54,7 +54,7 @@ export default {
 
   
     const ChangePage = inject('ChangePage');
-    const ProgramApiId = inject('ProgramApiId');
+    const ProjectApiId = inject('ProjectApiId');
 
     async function handleSearch() {
    
@@ -155,7 +155,7 @@ export default {
       keyName,
       ChangePage,
       ProjectTabs,
-      ProgramApiId
+      ProjectApiId
    
     };
   }
@@ -189,7 +189,7 @@ export default {
           <thead class="table-head">
             <tr>
               <th scope="col">status</th>
-              <th scope="col">Program title & ID</th>
+              <th scope="col">Project title & ID</th>
               <th scope="col">Progress(actual vs planned)</th>
               <th scope="col">Issues</th>
               <th scope="col">Risks</th>
@@ -216,7 +216,7 @@ export default {
                   fontSize: '16px',
                   backgroundColor: '#f1f1f1',
                 }"
-                  @click="()=>{ChangePage({fileName:ProjectTabs,key:'ProjectTabs'});ProgramApiId=item.id}">
+                  @click="()=>{ChangePage({fileName:ProjectTabs,key:'ProjectTabs'});ProjectApiId=item.id}">
                   open
                 </button>
               </td>
@@ -253,5 +253,5 @@ export default {
         </button>
       </div>
     </div>
-  </div></template>
-../../../../../Utils/Utils
+  </div>
+</template>

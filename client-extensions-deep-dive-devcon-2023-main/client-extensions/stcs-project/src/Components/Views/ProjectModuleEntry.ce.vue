@@ -2,7 +2,7 @@
 
     <div>
         <HeaderList />
-        <component :is="CurrentPage.fileName" :url="programHostUrl" />
+        <component :is="CurrentPage.fileName" :url="projectHostUrl" />
     </div>
 </template>
 
@@ -12,15 +12,16 @@ import { onUpdated, provide, reactive, ref } from 'vue';
 import ListPage from '../Global/ListPage.ce.vue';
 import HeaderList from '../Global/HeaderList.ce.vue';
 import ProjectTabs from './ProjectTabs.ce.vue';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 const CurrentPage = reactive({fileName:ListPage,key:"ListPage"});
-const ProgramApiId=ref(1000);
+const ProjectApiId=ref(null);
 
 
-const programHostUrl = `http://localhost:8080/o/c/projects/?p_auth=${Liferay.authToken}`
+const projectHostUrl = `http://localhost:8080/o/c/projectts/?p_auth=${Liferay.authToken}`
 
 provide('CurrentPage', CurrentPage);
-provide('ProgramApiId', ProgramApiId);
+provide('ProjectApiId', ProjectApiId);
 
 
 
