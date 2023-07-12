@@ -4,6 +4,7 @@
 	import Tab from "../Tabs/Tab.vue"
   import Overview from "./Overview.vue"
   import { fetchData } from '../../Utils/Utils';
+import RiskIssues from './Risk&Issues.vue';
 
 
   const ProjectApiId = inject('ProjectApiId');
@@ -27,6 +28,10 @@ onMounted(async () => {
 
 
 
+    
+
+
+
 
 
 
@@ -37,17 +42,17 @@ onMounted(async () => {
 
 <template>
 
-	<Tabs>
-    <div> this is {{  ProjectApiId }}</div>
+  <Tabs>
+    
   	<Tab active="true" title="Overview">
 
-<div v-if="ProjectGetOneData" ><Overview :ProjectGetOneData="ProjectGetOneData"/></div>
+<div v-if="ProjectGetOneData"><Overview :ProjectGetOneData="ProjectGetOneData"/></div>
     </Tab>
   	<Tab title="Milestones">
       Cras scelerisque, dolor vitae suscipit efficitur, risus orci sagittis velit, ac molestie nulla tortor id augue.
     </Tab>
   	<Tab title="Risk & Issues">
-      Morbi posuere, mauris eu vehicula tempor, nibh orci consectetur tortor, id eleifend dolor sapien ut augue.
+      <div v-if="ProjectGetOneData"><RiskIssues :ProjectGetOneData="ProjectGetOneData"/></div>
     </Tab>
   	<Tab title="Documents">
       Aenean varius dui eget ante finibus, sit amet finibus nisi facilisis. Nunc pellentesque, risus et pretium hendrerit.
@@ -68,6 +73,7 @@ onMounted(async () => {
 
 
   </Tabs>
+	
 </template>
 
 

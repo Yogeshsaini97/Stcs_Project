@@ -1,28 +1,110 @@
 <script setup>
 
-import ListPage from '../../Listing/ListPage.ce.vue';
+
+const props = defineProps({
+    ProjectGetOneData: Object,
+    required:true
+})
+
+console.log(props.ProjectGetOneData.projectOverview)
+console.log(props.ProjectGetOneData.projectTitle)
+
 
 
 
 </script>
 
 <template>
-    <div class="RiskStart">
-        <div class="Riskstartleft">
-            <h2 style=" height:20%;display:flex;align-items: center;">Risks & Issues</h2>
-            <div>
-            <h3 style=" height:20%;display:flex;align-items: center;">Project title & Id</h3>
-            <h6 style=" height:20%;display:flex;align-items: center;">lorem ipsuem lorem ipsuemlorem ipsuemlorem ipsuemlorem ipsuem</h6>
+   
+        <div class="row">
+          <div class="col-md-3 border-right">
+            <h2 class="mt-4 line-height-15">Risks &<br />Issues</h2>
+            <div class="mt-4">
+              <p class="mb-1 text-default">Project title & ID</p>
+              <p class="mb-0 font-weight-600">{{ props.ProjectGetOneData.projectTitle ?
+                props.ProjectGetOneData.projectTitle : "NO data found" }}</p>
+              <p>STCS - {{ props.ProjectGetOneData.id ?
+                props.ProjectGetOneData.id : "NO data found" }}</p>
+            </div>
+            <div class="card bg-light shadow-none rounded-0 mnh-140p mt-4">
+              <div class="card-body">
+                <p class="mb-0 font-40 text-default">12</p>
+                <p class="mb-0">Issues<img src="../../assets/images/arrow-up.svg" class="ml-1" alt="img" /></p>
+                <p class="mb-0 font-8 opacity-60">You have <span class="text-danger">12 severe</span> issues</p>
+              </div>
+            </div>
+            <div class="card bg-light shadow-none rounded-0 mnh-140p mt-4">
+              <div class="card-body">
+                <p class="mb-0 font-40 text-default">3</p>
+                <p class="mb-0">Risks<img src="../../assets/images/arrow-up.svg" class="ml-1" alt="img" /></p>
+                <p class="mb-0 font-8 opacity-60">You have <span class="text-danger">3 extreme</span> risks</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-9">
+            <div class="table-responsive mt-3">
+              <table class="table font-weight-600">
+                <thead>
+                  <tr>
+                    <th>Status</th>
+                    <th>Type</th>
+                    <th>Severity</th>
+                    <th>Title & ID</th>
+                    <th>Requested by</th>
+                    <th>Raised on</th>
+                    <th></th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><span class="badge rounded-pill bg-light-orange text-dark font-10"><i class='fa-solid fa-circle font-5 align-middle mr-2'></i>Escalated</span></td>
+                    <td>Issue</td>
+                    <td><span class="text-danger">Severe</span></td>
+                    <td>Installation & device with contract<br /><span class="font-weight-400">STCS - 000938</span></td>
+                    <td>John Doe<br /><span class="font-weight-400">STCS - Technical Support</span></td>
+                    <td>Mar 28th, 2023</td>
+                    <td><a href="javascript:void(0)"><img src="../../assets/images/arrow-up.svg" alt="img" /></a></td>
+                  </tr>
+                  <tr>
+                    <td><span class="badge rounded-pill bg-light-success text-dark font-10"><i class='fa-solid fa-circle font-5 align-middle mr-2'></i>Open</span></td>
+                    <td>Issue</td>
+                    <td><span class="text-orange">High</span></td>
+                    <td>Installation & device with contract<br /><span class="font-weight-400">STCS - 000938</span></td>
+                    <td>John Doe<br /><span class="font-weight-400">STCS - Technical Support</span></td>
+                    <td>Mar 28th, 2023</td>
+                    <td><a href="javascript:void(0)"><img src="../../assets/images/arrow-up.svg" alt="img" /></a></td>
+                  </tr>
+                  <tr>
+                    <td><span class="badge rounded-pill bg-light-success text-dark font-10"><i class='fa-solid fa-circle font-5 align-middle mr-2'></i>Open</span></td>
+                    <td>Risk</td>
+                    <td><span class="text-light-default">Medium</span></td>
+                    <td>Installation & device with contract<br /><span class="font-weight-400">STCS - 000938</span></td>
+                    <td>John Doe<br /><span class="font-weight-400">STCS - Technical Support</span></td>
+                    <td>Mar 28th, 2023</td>
+                    <td><a href="javascript:void(0)"><img src="../../assets/images/arrow-up.svg" alt="img" /></a></td>
+                  </tr>
+                  <tr>
+                    <td><span class="badge rounded-pill bg-light-default text-dark font-10"><i class='fa-solid fa-circle font-5 align-middle mr-2'></i>Resolved</span></td>
+                    <td>Issue</td>
+                    <td><span class="text-grey">Low</span></td>
+                    <td>Installation & device with contract<br /><span class="font-weight-400">STCS - 000938</span></td>
+                    <td>John Doe<br /><span class="font-weight-400">STCS - Technical Support</span></td>
+                    <td>Mar 28th, 2023</td>
+                    <td><a href="javascript:void(0)"><img src="../../assets/images/arrow-up.svg" alt="img" /></a></td>
+                  </tr>
+                  <tr>
+                    <td><span class="badge rounded-pill bg-light-default text-dark font-10"><i class='fa-solid fa-circle font-5 align-middle mr-2'></i>Resolved</span></td>
+                    <td>Risk</td>
+                    <td><span class="text-grey">Low</span></td>
+                    <td>Installation & device with contract<br /><span class="font-weight-400">STCS - 000938</span></td>
+                    <td>John Doe<br /><span class="font-weight-400">STCS - Technical Support</span></td>
+                    <td>Mar 28th, 2023</td>
+                    <td><a href="javascript:void(0)"><img src="../../assets/images/arrow-up.svg" alt="img" /></a></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
         </div>
-        <div>
-            <h1>12</h1>
-            <h1>Issues</h1>
-            <h1>3</h1>
-            <h1>Risks</h1>
-        </div>
-        </div>
-        <div class="RiskStartRIght">
-            <ListPage :url="projectHostUrl" />
-        </div>
-    </div>
+  
 </template>

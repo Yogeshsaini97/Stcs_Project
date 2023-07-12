@@ -45,19 +45,19 @@ export default {
       try {
         const response = await fetchData(hostUrl + `&pageSize=${pageSize.value}`);
         userList.value = response.items;
-     
+
       }
       catch (error) {
         console.error(error);
       }
     });
 
-  
+
     const ChangePage = inject('ChangePage');
     const ProjectApiId = inject('ProjectApiId');
 
     async function handleSearch() {
-   
+
       const response = await fetchData(hostUrl + `&search=${searchTerm.value}`);
       userList.value = response.items;
     }
@@ -156,7 +156,7 @@ export default {
       ChangePage,
       ProjectTabs,
       ProjectApiId
-   
+
     };
   }
 };
@@ -164,76 +164,88 @@ export default {
 
 
 <template>
-  <div>
+  
+    <div>
+      <div class="List-head">
+        <div class="Searchbar">
+          <input type="text" v-model="searchTerm" @input="handleSearch" placeholder="Search..." class="search-input" />
+        </div>
+        <div class="table-border">
+          <div class="container-fluid my-3 mnh-375p">
+            <div class="row">
+              <div class="col-md-12">
+                <div class="table-responsive">
+                  <table class="table font-weight-600">
+                    <thead>
+                      <tr>
+                        <th>Status</th>
+                        <th>Program title & ID</th>
+                        <th>Progress (actual vs planned)</th>
+  
+                        <th>Issues</th>
+                        <th>Risks</th>
+                        <th>Started</th>
+                        <th>Expected completion</th>
+                        <th></th>
+                      </tr>
+                    </thead>
+                    <tbody v-if="userList.length > 0">
+                      <tr v-for="item in userList" :key="item.id">
+                        <td><span class="badge rounded-pill bg-light-success font-10"><i
+                              class='fa-solid fa-circle font-5 align-middle mr-2'></i>{{ item.statusActive }}</span></td>
+                        <td>{{ item.projectTitle }}<br /><span class="font-weight-400">STCS - {{ item.id }}</span></td>
+                        <td>
+                          <div class="row">
+                            <div class="col-6">
+                              <p class="mb-0 font-10">Actual<span class="ml-2 text-danger">{{ item.progressActual }}%</span>
+                              </p>
+                            </div>
+                            <div class="col-6">
+                              <p class="mb-0 text-right font-10">Planned<span class="ml-2 text-success">{{
+                                item.progressPlanned }}%</span></p>
+                            </div>
+                            <div class="col-12">
+                              <div class="progress h-5p">
+                                <div class="progress-bar bg-danger" role="progressbar" aria-valuenow="10"
+                                  :style="{ width: `${item.progressActual}%` }"></div>
+                                <div class="progress-bar bg-success" role="progressbar" aria-valuenow="40"
+                                :style="{ width: `${item.progressPlanned}%` }"></div>
+                              </div>
+                            </div>
+                          </div>
+                        </td>
+  
+                        <td>{{ item.issues }}</td>
+                        <td>{{ item.risks }}</td>
+                        <td>{{ ChangeDateFormat(item.startedDate) }}</td>
+                        <td>{{ ChangeDateFormat(item.expectedCompletion) }}</td>
+                        <td><a href="javascript:void(0)"><img src="../../assets/images/arrow-up.svg" alt="img"
+                              @click="() => { ChangePage({ fileName: ProjectTabs, key: 'ProjectTabs' }); ProjectApiId = item.id }" /></a>
+                        </td>
+                      </tr>
+                    </tbody>
+                    <tbody v-else>
+                      <tr>
+                        <td colspan="7">End of Data</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+        </div>
+        <!-- -------------------- -->
+
+        
 
 
-    <!-- -------------Header-start----- -->
-   
-    
-
-
-    <!-- -------------Header-end------------ -->
-
-
-    <!-- .......... search -->
-
-    <!-- <------------search....> -->
-
-    <div class="List-head">
-      his is{{ ProgramApiId }}
-      <div class="Searchbar">
-        <input type="text" v-model="searchTerm" @input="handleSearch" placeholder="Search..." class="search-input" />
-      </div>
-      <div class="table-border">
-        <table class="table">
-          <thead class="table-head">
-            <tr>
-              <th scope="col">status</th>
-              <th scope="col">Project title & ID</th>
-              <th scope="col">Progress(actual vs planned)</th>
-              <th scope="col">Issues</th>
-              <th scope="col">Risks</th>
-              <th scope="col">Started</th>
-              <th scope="col">Expected Completion</th>
-              <th scope="col"></th>
-            </tr>
-          </thead>
-          <tbody v-if="userList.length > 0">
-            <tr v-for="item in userList" :key="item.id">
-              <td>{{ item.statusActive }}</td>
-              <td>
-                {{ item.projectTitle }}
-                {{ item.id }}
-              </td>
-              <td>{{ item.progressPlanned }}% {{ item.progressActual }}%</td>
-              <td>{{ item.issues }}</td>
-              <td>{{ item.risks }}</td>
-              <td>{{ ChangeDateFormat(item.startedDate) }}</td>
-              <td>{{ ChangeDateFormat(item.expectedCompletion) }}</td>
-              <td>
-                <button :style="{
-                  color: 'red',
-                  fontSize: '16px',
-                  backgroundColor: '#f1f1f1',
-                }"
-                  @click="()=>{ChangePage({fileName:ProjectTabs,key:'ProjectTabs'});ProjectApiId=item.id}">
-                  open
-                </button>
-              </td>
-            </tr>
-          </tbody>
-
-          <tbody v-else>
-            <tr>
-              <td colspan="7">End of Data</td>
-            </tr>
-          </tbody>
-        </table>
       </div>
 
       <!-- '''''' pagination  -->
 
-      <div></div>
+    
       <div class="pagination">
         <button @click="previousPage" :disabled="currentPage === 1">
           Previous
@@ -252,6 +264,6 @@ export default {
           Next
         </button>
       </div>
+      
     </div>
-  </div>
 </template>

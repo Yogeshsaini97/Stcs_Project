@@ -3,16 +3,9 @@
 <style src="./assets//Style/ListPage.css"></style> <!-- Include the external CSS file -->
 <style src="./assets//Style/Risk&Issues.css"></style> <!-- Include the external CSS file -->
 <style src="./assets//Style/Main.css"></style> <!-- Include the external CSS file -->
-<!-- <style>
-@import "~@fortawesome/fontawesome-free/css/all.min.css";
-</style> -->
-<!-- Importing ProjectModule.vue file  -->
+
 <script setup>
 import ProjectModuleEntry from "./Components/Views/ProjectModuleEntry.ce.vue"
-
-
-
-
 </script>
 
 <template>
