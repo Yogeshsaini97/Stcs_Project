@@ -181,7 +181,6 @@ export default {
                         <th>Status</th>
                         <th>Program title & ID</th>
                         <th>Progress (actual vs planned)</th>
-  
                         <th>Issues</th>
                         <th>Risks</th>
                         <th>Started</th>
@@ -214,13 +213,12 @@ export default {
                             </div>
                           </div>
                         </td>
-  
-                        <td>{{ item.issues }}</td>
+                         <td>{{ item.issues }}</td>
                         <td>{{ item.risks }}</td>
                         <td>{{ ChangeDateFormat(item.startedDate) }}</td>
                         <td>{{ ChangeDateFormat(item.expectedCompletion) }}</td>
                         <td><a href="javascript:void(0)"><img src="../../assets/images/arrow-up.svg" alt="img"
-                              @click="() => { ChangePage({ fileName: ProjectTabs, key: 'ProjectTabs' }); ProjectApiId = item.id }" /></a>
+                              @click="() => {ChangePage({ fileName: ProjectTabs, key: 'ProjectTabs' }); ProjectApiId = item.id }" /></a>
                         </td>
                       </tr>
                     </tbody>

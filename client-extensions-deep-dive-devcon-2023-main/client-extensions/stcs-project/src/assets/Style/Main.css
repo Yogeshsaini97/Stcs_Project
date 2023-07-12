@@ -3,7 +3,7 @@
 /****************************/
 
 @font-face {
-    font-family: "STC Forward";
+  font-family:"STC Forward";
     src: url("../fonts/STC.eot");
     /* IE9*/
     src: url("../fonts/STC.eot?#iefix") format("embedded-opentype"),
@@ -23,9 +23,10 @@
     margin: 0;
     padding: 0;
     font-size: 13px;
-    font-family: "STC Forward";
+    font-family:"STC Forward";
     background-color: #FFFFFF !important;
     color: #101010;
+    
   }
   
   /* html::before {
@@ -15707,7 +15708,7 @@
     padding: 3px 5px;
     font-size: 10px;
     font-weight: 400;
-    font-family: 'Jost', sans-serif !important;
+    font-family:"STC Forward";
     background: #D8222A 0% 0% no-repeat padding-box;
   }
   
