@@ -195,9 +195,9 @@
   resolved "https://registry.npmjs.org/@jridgewell/sourcemap-codec/-/sourcemap-codec-1.4.15.tgz"
   integrity sha512-eF2rxCRulEKXHTRiDrDy6erMYWqNw4LPdQ8UQA4huuxaQsVeRPFl2oM8oDGxMFhJUWZf9McpLtJasDDZb/Bpeg==
 
-"@liferay/tickets-theme-css@file:C:\\GithhubstcsDevelopment\\GIThubStcs\\Stcs_Project\\STCS_Project_Management\\client-extensions\\tickets-theme-css":
+"@liferay/tickets-theme-css@file:C:\\GithhubstcsDevelopment\\GIThubStcs\\Stcs_Project\\STCS_Project_Management\\STCS_Vue_main\\tickets-theme-css":
   version "1.0.0"
-  resolved "file:client-extensions/tickets-theme-css"
+  resolved "file:STCS_Vue_main/tickets-theme-css"
   dependencies:
     sassy-inputs "1.0.6"
 
@@ -3944,9 +3944,9 @@ statuses@2.0.1:
   resolved "https://registry.npmjs.org/statuses/-/statuses-2.0.1.tgz"
   integrity sha512-RwNA9Z/7PrK06rYLIzFMlaF+l73iwpzsqRIFgbMLbTcLD6cOao82TaWefPXQvB2fOC4AjuYSEndS7N/mTCbkdQ==
 
-"stcs-project@file:C:\\GithhubstcsDevelopment\\GIThubStcs\\Stcs_Project\\STCS_Project_Management\\client-extensions\\stcs-project":
+"stcs-project@file:C:\\GithhubstcsDevelopment\\GIThubStcs\\Stcs_Project\\STCS_Project_Management\\STCS_Vue_main\\stcs-project":
   version "0.0.0"
-  resolved "file:client-extensions/stcs-project"
+  resolved "file:STCS_Vue_main/stcs-project"
   dependencies:
     "@emotion/react" "^11.11.1"
     "@emotion/styled" "^11.11.0"
@@ -4091,9 +4091,9 @@ through2@^2.0.0, through2@^2.0.3, through2@~2.0.0:
     readable-stream "~2.3.6"
     xtend "~4.0.1"
 
-"ticket-etc-node@file:C:\\GithhubstcsDevelopment\\GIThubStcs\\Stcs_Project\\STCS_Project_Management\\client-extensions\\ticket-etc-node":
+"ticket-etc-node@file:C:\\GithhubstcsDevelopment\\GIThubStcs\\Stcs_Project\\STCS_Project_Management\\STCS_Vue_main\\ticket-etc-node":
   version "1.0.0"
-  resolved "file:client-extensions/ticket-etc-node"
+  resolved "file:STCS_Vue_main/ticket-etc-node"
   dependencies:
     body-parser "1.20.2"
     cors "2.8.5"
