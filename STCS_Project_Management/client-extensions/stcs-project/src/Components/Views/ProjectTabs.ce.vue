@@ -81,13 +81,6 @@ apiGot.items.forEach(element => {
   
 });
 
-
-
-
-
-
-
-
 }
 
 
@@ -119,16 +112,16 @@ provide("no_of_Risks",no_of_Risks);
 
 
   <Tabs>
-    <button @click="changeTab(3)">change</button>
+   
     
-  	<Tab active="true" id="zero" title="Overview">
+  	<Tab active="true" id="Overview" title="Overview">
 
 <div v-if="ProjectGetOneData"><Overview :ProjectGetOneData="ProjectGetOneData"/></div>
     </Tab>
-  	<Tab title="Milestones" id="one">
+  	<Tab title="Milestones" id="Milestones">
       Cras scelerisque, dolor vitae suscipit efficitur, risus orci sagittis velit, ac molestie nulla tortor id augue.
     </Tab>
-  	<Tab title="Risk & Issues">
+  	<Tab title="Risk & Issues" id="Risk_&_Issues">
       <div v-if="ProjectGetOneData"><RiskIssues :ProjectGetOneData="ProjectGetOneData" :ProjectApiId="ProjectApiId"/></div>
     </Tab>
   	<Tab title="Documents">
