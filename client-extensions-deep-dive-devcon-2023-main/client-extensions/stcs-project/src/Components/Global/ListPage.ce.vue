@@ -39,12 +39,15 @@ export default {
     const currentPage = ref(1);
     const hostUrl = props.url;
     const keyName = props.keyName;
+    const openRiskList=hostUrl.split('/').includes('risksandissues');
+    console.log(openRiskList)
 
 
     onMounted(async () => {
       try {
         const response = await fetchData(hostUrl + `&pageSize=${pageSize.value}`);
         userList.value = response.items;
+        // console.log(hostUrl.split("/").includes("risksandissues"))
 
       }
       catch (error) {
@@ -155,7 +158,8 @@ export default {
       keyName,
       ChangePage,
       ProjectTabs,
-      ProjectApiId
+      ProjectApiId,
+      openRiskList
 
     };
   }
@@ -175,7 +179,10 @@ export default {
             <div class="row">
               <div class="col-md-12">
                 <div class="table-responsive">
-                  <table class="table font-weight-600">
+
+                  <!-- --------- table for  project list-  -->
+                  
+                  <table class="table font-weight-600" v-if="!openRiskList">
                     <thead>
                       <tr>
                         <th>Status</th>
@@ -188,6 +195,7 @@ export default {
                         <th></th>
                       </tr>
                     </thead>
+                   
                     <tbody v-if="userList.length > 0">
                       <tr v-for="item in userList" :key="item.id">
                         <td><span class="badge rounded-pill bg-light-success font-10"><i
@@ -228,6 +236,43 @@ export default {
                       </tr>
                     </tbody>
                   </table>
+                    <!-- --------- table for  risk & Issues  list-  -->
+                  <table class="table font-weight-600" v-else>
+                    <thead>
+                      <tr>
+                        <th>Status</th>
+                        <th>Type</th>
+                        <th>Severity</th>
+                        <th>Title & ID</th>
+                        <th>Requested by</th>
+                        <th>Raised on</th>
+                        <th></th>
+                      </tr>
+                    </thead>
+                   
+                    <tbody v-if="userList.length > 0">
+                      <tr v-for="item in userList" :key="item.id">
+                        <td><span class="badge rounded-pill bg-light-success font-10"><i
+                              class='fa-solid fa-circle font-5 align-middle mr-2'></i>{{ item.rIskStatus }}</span></td>
+                        <td  class="font-weight-800">{{ item.type }}<br /></td>
+                       
+                         <td>{{ item.severity }}</td>
+                         <td>{{ item.title }}<br /><span class="font-weight-400">STCS - {{ item.id }}</span></td>
+                         <td>{{ item.requestedBy }}</td>
+                        <td>{{ ChangeDateFormat(item.raisedOn) }}</td>
+                       
+                        <td><a href="javascript:void(0)"><img src="../../assets/images/arrow-up.svg" alt="img"
+                              @click="() => {ChangePage({ fileName: ProjectTabs, key: 'ProjectTabs' }); ProjectApiId = item.id }" /></a>
+                        </td>
+                      </tr>
+                    </tbody>
+                    <tbody v-else>
+                      <tr>
+                        <td colspan="7">End of Data</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                  
                 </div>
               </div>
             </div>

@@ -1,13 +1,30 @@
 <script setup>
+import { inject } from "vue";
+import listpage from "../Global/ListPage.ce.vue"
+
 
 
 const props = defineProps({
-    ProjectGetOneData: Object,
-    required:true
+
+ProjectGetOneData: {
+    type: Object,
+    required: true
+  },
+  ProjectApiId: {
+    type: String,
+    required: true
+  },
 })
 
-console.log(props.ProjectGetOneData.projectOverview)
-console.log(props.ProjectGetOneData.projectTitle)
+const no_of_Issues =inject("no_of_Issues");
+const no_of_Risks =inject("no_of_Risks");
+
+
+
+
+
+
+const RisknIssuesUrl=`http://localhost:8080/o/c/risksandissues/?p_auth=${Liferay.authToken}&filter=r_withRiskAndIssues_c_projecttId eq '${props.ProjectApiId}'`;
 
 
 
@@ -28,22 +45,22 @@ console.log(props.ProjectGetOneData.projectTitle)
             </div>
             <div class="card bg-light shadow-none rounded-0 mnh-140p mt-4">
               <div class="card-body">
-                <p class="mb-0 font-40 text-default">12</p>
+                <p class="mb-0 font-40 text-default">{{ no_of_Issues }}</p>
                 <p class="mb-0">Issues<img src="../../assets/images/arrow-up.svg" class="ml-1" alt="img" /></p>
-                <p class="mb-0 font-8 opacity-60">You have <span class="text-danger">12 severe</span> issues</p>
+                <p class="mb-0 font-8 opacity-60">You have <span class="text-danger"> {{ no_of_Issues }}severe</span> issues</p>
               </div>
             </div>
             <div class="card bg-light shadow-none rounded-0 mnh-140p mt-4">
               <div class="card-body">
-                <p class="mb-0 font-40 text-default">3</p>
+                <p class="mb-0 font-40 text-default">{{ no_of_Risks}}</p>
                 <p class="mb-0">Risks<img src="../../assets/images/arrow-up.svg" class="ml-1" alt="img" /></p>
-                <p class="mb-0 font-8 opacity-60">You have <span class="text-danger">3 extreme</span> risks</p>
+                <p class="mb-0 font-8 opacity-60">You have <span class="text-danger">{{ no_of_Risks}} extreme</span> risks</p>
               </div>
             </div>
           </div>
           <div class="col-md-9">
             <div class="table-responsive mt-3">
-              <table class="table font-weight-600">
+              <!-- <table class="table font-weight-600">
                 <thead>
                   <tr>
                     <th>Status</th>
@@ -102,7 +119,8 @@ console.log(props.ProjectGetOneData.projectTitle)
                     <td><a href="javascript:void(0)"><img src="../../assets/images/arrow-up.svg" alt="img" /></a></td>
                   </tr>
                 </tbody>
-              </table>
+              </table> -->
+              <listpage :url="RisknIssuesUrl" />
             </div>
           </div>
         </div>

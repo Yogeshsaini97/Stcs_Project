@@ -15,6 +15,7 @@
     }
   })
   const changeTab = (index) => {
+    console.log(index)
     activeTabIndex = index;
     for(let x of [...tabs.value, ...tabHeaders.value]) {
    		x.classList.remove('active')
