@@ -1,13 +1,24 @@
 <script setup>
+import { inject, ref } from 'vue';
 import { ChangeDateFormat } from '../../Utils/Utils';
 
+const ProjectGetOneData =inject("ProjectGetOneData");
+const api2Data =inject("api2Data");
+const no_of_Issues =inject("no_of_Issues");
+const no_of_Risks =inject("no_of_Risks");
 
-const props = defineProps({
-    ProjectGetOneData: Object,
-    required:true
-})
 
-console.log(props.ProjectGetOneData.projectOverview)
+// console.log(api2Data.value)
+setTimeout(()=>
+{
+console.log(no_of_Issues.value)
+console.log(no_of_Risks.value)
+},1000)
+
+
+
+
+
 
 </script>
 
@@ -19,8 +30,8 @@ console.log(props.ProjectGetOneData.projectOverview)
           <div class="col-md-3 border-right">
             <h2 class="my-4 line-height-15">Project<br />Overview</h2>
             <p class="text-default font-12">Project description</p>
-            <p class="font-12">{{ props.ProjectGetOneData.projectOverview ?
-                props.ProjectGetOneData.projectOverview : "NO data found" }}.</p>
+            <p class="font-12">{{ ProjectGetOneData.projectOverview ?
+                ProjectGetOneData.projectOverview : "NO data found" }}.</p>
           </div>
           <div class="col-md-9">
             <div class="mt-3">
@@ -36,12 +47,12 @@ console.log(props.ProjectGetOneData.projectOverview)
                   <tr>
                     <td>Installation & device with contract<br /><span class="font-weight-400">STCS - 000938</span>
                     </td>
-                    <td>{{ props.ProjectGetOneData.projectTitle ?
-                        props.ProjectGetOneData.projectTitle : "NO data found" }}<br /><span class="font-weight-400">STCS - {{ props.ProjectGetOneData.id ?
-                            props.ProjectGetOneData.id : "NO data found" }}</span>
+                    <td>{{ ProjectGetOneData.projectTitle ?
+                        ProjectGetOneData.projectTitle : "NO data found" }}<br /><span class="font-weight-400">STCS - {{ ProjectGetOneData.id ?
+                            ProjectGetOneData.id : "NO data found" }}</span>
                     </td>
-                    <td>{{ props.ProjectGetOneData.startedDate ?
-                        ChangeDateFormat(props.ProjectGetOneData.startedDate) : "NO data found" }}<br /><span class="font-weight-400">12.35 pm</span></td>
+                    <td>{{ ProjectGetOneData.startedDate ?
+                        ChangeDateFormat(ProjectGetOneData.startedDate) : "NO data found" }}<br /><span class="font-weight-400">12.35 pm</span></td>
                   </tr>
                 </tbody>
               </table>
@@ -98,7 +109,7 @@ console.log(props.ProjectGetOneData.projectOverview)
                 <div class="col-md-4">
                   <div class="card grey mnh-140p mb-40">
                     <div class="card-body">
-                      <p class="mb-0 font-40 text-default">12</p>
+                      <p class="mb-0 font-40 text-default">{{ no_of_Issues }}</p>
                       <p class="mb-0">Issues<img src="../../assets/images/arrow-up.svg" class="ml-1 w-15p" alt="img" /></p>
                       <p class="mb-0 font-8 opacity-60">You have <span class="text-danger">12 severe</span> issues</p>
                     </div>
@@ -107,7 +118,7 @@ console.log(props.ProjectGetOneData.projectOverview)
                 <div class="col-md-4">
                   <div class="card grey mnh-140p mb-40">
                     <div class="card-body">
-                      <p class="mb-0 font-40 text-default">3</p>
+                      <p class="mb-0 font-40 text-default">{{ no_of_Risks }}</p>
                       <p class="mb-0">Risks<img src="../../assets/images/arrow-up.svg" class="ml-1 w-15p" alt="img" /></p>
                       <p class="mb-0 font-8 opacity-60">You have <span class="text-danger">3 extreme</span> risks</p>
                     </div>

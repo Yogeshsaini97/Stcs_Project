@@ -11,7 +11,7 @@
 import { onUpdated, provide, reactive, ref } from 'vue';
 import ListPage from '../Global/ListPage.ce.vue';
 import HeaderList from '../Global/HeaderList.ce.vue';
-import 'bootstrap/dist/css/bootstrap.min.css';
+
 
 const CurrentPage = reactive({fileName:ListPage,key:"ListPage"});
 const ProjectApiId=ref(null);
@@ -36,8 +36,6 @@ const ChangePage=(PageToRender)=>
   CurrentPage.key=PageToRender.key;
   // CurrentPage={PageToRender};
 }
-
-
 
 provide('ChangePage', ChangePage);
 
