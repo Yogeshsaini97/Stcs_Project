@@ -2,9 +2,7 @@
     "private": true,
     "workspaces": {
         "packages": [
-            "STCS_Vue_main\\stcs-project",
-            "STCS_Vue_main\\ticket-etc-node",
-            "STCS_Vue_main\\tickets-theme-css"
+            "STCS_Vue_main\\stcs-project"
         ]
     }
 }
