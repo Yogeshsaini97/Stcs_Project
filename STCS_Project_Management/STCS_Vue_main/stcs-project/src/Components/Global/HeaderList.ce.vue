@@ -21,6 +21,9 @@
               </div>
             </div>
             <div class="col-md-6 d-flex justify-content-end z-index-9 mt-1">
+               <!--Data loader start here-->
+               <progress-bar actualValue=50 plannedValue=70 />
+               <!--Data Loader end here-->
               <a href="javascript:void(0)" class="btn btn-primary align-center rounded-10"><img src="../../assets/images/filter-white.svg" alt="img" /></a>
               <a href="javascript:void(0)" class="btn btn-primary align-center rounded-10 ml-4"><img src="../../assets/images/cloud-download-white.svg" alt="img" /></a>
               <a href="javascript:void(0)" class="btn btn-light align-center rounded-10 ml-4 text-default"><img src="../../assets/images/headset.svg" class="mr-3" alt="img" />Talk to us<img src="../../assets/images/angle-right.svg" class="ml-3" alt="img" /></a>
