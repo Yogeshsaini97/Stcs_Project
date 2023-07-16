@@ -8,8 +8,8 @@
 #  See https://learn.liferay.com/w/dxp/building-applications/STCS_Vue_main/working-with-STCS_Vue_main#assembling-STCS_Vue_main
 #  for more information
 assemble:
-    - from: dist/assets
-      into: static
+  - from: dist/assets
+    into: static
 # Here declare our custom element client extension. We
 #  specify for example which URLs are used to render our 
 #  application and that we use ES modules
