@@ -161,8 +161,8 @@ export default {
 
 <template>
   
-    <div>
-      <HeaderList />
+    
+     
       <div class="List-head">
         <div class="Searchbar">
           <input type="text" v-model="searchTerm" @input="handleSearch" placeholder="Search..." class="search-input" />
@@ -301,5 +301,5 @@ export default {
         </button>
       </div>
       
-    </div>
+   
 </template>
