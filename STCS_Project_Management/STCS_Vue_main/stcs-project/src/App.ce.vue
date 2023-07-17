@@ -16,7 +16,7 @@ import ProjectModuleEntry from "./Components/Views/ProjectModuleEntry.ce.vue"
 
 <template>
   <div>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/4.6.2/css/bootstrap.min.css" rel="stylesheet">/
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/4.6.2/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" />
     <link rel="icon" href="./assets/images/favicon.ico" type="image">
     <ProjectModuleEntry /></div>

@@ -10,14 +10,15 @@
               <div class="ml-4">
                 <h4 class="mb-0">Projects</h4>
 
-            
-                <p class="mb-0 font-10">
-                  <span class="opacity-60">Dashboard</span>
-                  <img src="../../assets/images/angle-right.svg"
-                    class="mx-1" alt="img" />
-                    <span class="opacity-60">Programs</span>
-                    <img src="../../assets/images/angle-right.svg"
-                    class="mx-1" alt="img" />Projects</p>
+                      <p class="breadcrumbmain mb-0 font-10" >
+                        <li>Dashboard</li>
+                        <li v-for="(item, index) in breadcrumbs" :key="index" >
+                          <span > <img src="../../assets/images/angle-right.svg"
+                            class="mx-1 opacity-60" alt="img" /> {{ item.label }}</span>
+                        </li>
+                      </p>
+                  
+                    
               </div>
             </div>
             <div class="col-md-6 d-flex justify-content-end z-index-9 mt-1">
@@ -38,11 +39,15 @@
 </template>
 
 <script setup>
-import { inject } from 'vue';
+import { inject, ref } from 'vue';
 import ListPage from './ListPage.ce.vue';
+
 
 const CurrentPage = inject('CurrentPage');
 const ChangePage = inject('ChangePage');
+const breadcrumbs = inject('breadcrumbs');
+
+
 
 const BackButton=()=>
 {
@@ -57,8 +62,16 @@ const BackButton=()=>
   else if(CurrentPage.key==="ProjectTabs")
   {
     ChangePage({fileName:ListPage,key:'ListPage'})
+    console.log(breadcrumbs.value)
+    breadcrumbs.value.pop();
    
   }
+
+
+
+
+
+
 
  
 

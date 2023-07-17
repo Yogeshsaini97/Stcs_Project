@@ -40,6 +40,13 @@ export default {
         const hostUrl = props.url;
         const keyName = props.keyName;
         const openRiskList = hostUrl.split("/").includes("risksandissues");
+
+        const breadcrumbs = inject('breadcrumbs');
+        const ChangePage = inject("ChangePage");
+        const ProjectApiId = inject("ProjectApiId");
+
+
+
         onMounted(async () => {
             try {
                 const response = await fetchData(hostUrl + `&pageSize=${pageSize.value}`);
@@ -49,8 +56,7 @@ export default {
                 console.error(error);
             }
         });
-        const ChangePage = inject("ChangePage");
-        const ProjectApiId = inject("ProjectApiId");
+       
         async function handleSearch() {
             const response = await fetchData(hostUrl + `&search=${searchTerm.value}`);
             userList.value = response.items;
@@ -151,7 +157,8 @@ export default {
             ProjectTabs,
             ProjectApiId,
             openRiskList,
-            HeaderList
+            HeaderList,
+            breadcrumbs
         };
     },
     components: { HeaderList }
@@ -160,10 +167,8 @@ export default {
 
 
 <template>
-  
-    
-     
-      <div class="List-head">
+  <div>
+         <div class="List-head">
         <div class="Searchbar">
           <input type="text" v-model="searchTerm" @input="handleSearch" placeholder="Search..." class="search-input" />
         </div>
@@ -219,7 +224,7 @@ export default {
                         <td>{{ ChangeDateFormat(item.startedDate) }}</td>
                         <td>{{ ChangeDateFormat(item.expectedCompletion) }}</td>
                         <td><a href="javascript:void(0)"><img src="../../assets/images/arrow-up.svg" alt="img"
-                              @click="() => {ChangePage({ fileName: ProjectTabs, key: 'ProjectTabs' }); ProjectApiId = item.id }" /></a>
+                              @click="() => {ChangePage({ fileName: ProjectTabs, key: 'ProjectTabs' }); ProjectApiId = item.id;breadcrumbs.push({label:'stcs-5943'}) }" /></a>
                         </td>
                       </tr>
                     </tbody>
@@ -300,6 +305,7 @@ export default {
           Next
         </button>
       </div>
+    </div>
       
    
 </template>

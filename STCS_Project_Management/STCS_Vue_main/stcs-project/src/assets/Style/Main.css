@@ -15580,11 +15580,15 @@
     z-index: 1;
   }
   
-  .breadcrumb {
-    border-radius: 0px;
+  .breadcrumbmain {
+        display: flex;
+    flex-wrap: nowrap;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
   }
   
-  .breadcrumb::before {
+  /* .breadcrumb::before {
     width: 22%;
     height: 25%;
     content: ' ';
@@ -15606,7 +15610,7 @@
     background-image: url(../images/bg-nav-2.svg);
     background-repeat: no-repeat;
     z-index: 0;
-  }
+  } */
   
   #approveThePlan .modal-content::before, #requestModification .modal-content::before {
     width: 216px;

@@ -16,16 +16,10 @@ import RiskIssues from './Risk&Issues.vue';
   const api2Data = ref(null);
   const api3Data = ref(null);
   const no_of_Risks=ref(0);
-const no_of_Issues=ref(0);
+  const no_of_Issues=ref(0);
 
 
-
-  
-
-
-  
-
-    const fetchMultipleApi = async () => {
+  const fetchMultipleApi = async () => {
       try {
         const [response1, response2, response3, response4] = await Promise.all([
           fetchData(`http://localhost:8080/o/c/projectts/${ProjectApiId.value}?p_auth=${Liferay.authToken}`),
@@ -116,13 +110,13 @@ provide("no_of_Risks",no_of_Risks);
     
   	<Tab active="true" id="Overview" title="Overview">
 
-<div v-if="ProjectGetOneData"><Overview :ProjectGetOneData="ProjectGetOneData"/></div>
+<div v-if="ProjectGetOneData"><Overview/></div>
     </Tab>
   	<Tab title="Milestones" id="Milestones">
       Cras scelerisque, dolor vitae suscipit efficitur, risus orci sagittis velit, ac molestie nulla tortor id augue.
     </Tab>
   	<Tab title="Risk & Issues" id="Risk_&_Issues">
-      <div v-if="ProjectGetOneData"><RiskIssues :ProjectGetOneData="ProjectGetOneData" :ProjectApiId="ProjectApiId"/></div>
+      <div v-if="ProjectGetOneData"><RiskIssues /></div>
     </Tab>
   	<Tab title="Documents">
       Aenean varius dui eget ante finibus, sit amet finibus nisi facilisis. Nunc pellentesque, risus et pretium hendrerit.
