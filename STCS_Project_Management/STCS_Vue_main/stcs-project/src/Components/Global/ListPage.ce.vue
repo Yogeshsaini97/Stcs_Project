@@ -3,166 +3,158 @@ import { ref, onMounted, computed, inject } from "vue";
 
 import { ChangeDateFormat, fetchData } from "../../Utils/Utils";
 import ProjectTabs from "../Views/ProjectTabs.ce.vue"
-
+import HeaderList from "./HeaderList.ce.vue";
 
 export default {
-  props: {
-    keyName: {
-      type: Object,
-      required: true,
+    props: {
+        keyName: {
+            type: Object,
+            required: true,
+        },
+        url: {
+            type: String,
+            required: true,
+        },
+        childVariable: {
+            type: String,
+            required: true,
+        },
+        totalItems: {
+            type: Number,
+            required: true,
+        },
+        itemsPerPage: {
+            type: Number,
+            default: 10,
+        },
+        maxDisplayedPages: {
+            type: Number,
+            default: 5,
+        },
     },
-    url: {
-      type: String,
-      required: true,
-    },
-    childVariable: {
-      type: String,
-      required: true,
-    },
-    totalItems: {
-      type: Number,
-      required: true,
-    },
-    itemsPerPage: {
-      type: Number,
-      default: 10,
-    },
-    maxDisplayedPages: {
-      type: Number,
-      default: 5,
-    },
-  },
-  setup(props, context) {
-    const userList = ref([]);
-    const searchTerm = ref("");
-    const pageSize = ref(6);
-    const currentPage = ref(1);
-    const hostUrl = props.url;
-    const keyName = props.keyName;
-    const openRiskList=hostUrl.split('/').includes('risksandissues');
-    console.log(openRiskList)
-
-
-    onMounted(async () => {
-      try {
-        const response = await fetchData(hostUrl + `&pageSize=${pageSize.value}`);
-        userList.value = response.items;
-        // console.log(hostUrl.split("/").includes("risksandissues"))
-
-      }
-      catch (error) {
-        console.error(error);
-      }
-    });
-
-
-    const ChangePage = inject('ChangePage');
-    const ProjectApiId = inject('ProjectApiId');
-
-    async function handleSearch() {
-
-      const response = await fetchData(hostUrl + `&search=${searchTerm.value}`);
-      userList.value = response.items;
-    }
-    // ------------------
-    const totalPages = computed(() => Math.ceil(20 / 2));
-    async function urlEmbed(CurrentPage) {
-      const response = await fetchData(hostUrl + `&page=${CurrentPage}&pageSize=${pageSize.value}&search=${searchTerm.value}`);
-      userList.value = response.items;
-    }
-    const displayedPages = computed(() => {
-      const pages = [];
-      if (totalPages.value <= props.maxDisplayedPages) {
-        // If the total number of pages is less than or equal to the max displayed pages,
-        // display all pages without any dots
-        for (let page = 1; page <= totalPages.value; page++) {
-          pages.push(page);
+    setup(props, context) {
+        const userList = ref([]);
+        const searchTerm = ref("");
+        const pageSize = ref(6);
+        const currentPage = ref(1);
+        const hostUrl = props.url;
+        const keyName = props.keyName;
+        const openRiskList = hostUrl.split("/").includes("risksandissues");
+        onMounted(async () => {
+            try {
+                const response = await fetchData(hostUrl + `&pageSize=${pageSize.value}`);
+                userList.value = response.items;
+            }
+            catch (error) {
+                console.error(error);
+            }
+        });
+        const ChangePage = inject("ChangePage");
+        const ProjectApiId = inject("ProjectApiId");
+        async function handleSearch() {
+            const response = await fetchData(hostUrl + `&search=${searchTerm.value}`);
+            userList.value = response.items;
         }
-      }
-      else {
-        // Calculate the start and end page based on the current page and maxDisplayedPages
-        let startPage = Math.max(1, currentPage.value - Math.floor(props.maxDisplayedPages / 2));
-        let endPage = Math.min(totalPages.value, startPage + props.maxDisplayedPages - 1);
-        // Adjust the start and end page to include dots if necessary
-        if (endPage - startPage + 1 < props.maxDisplayedPages) {
-          if (currentPage.value <= Math.ceil(props.maxDisplayedPages / 2)) {
-            endPage = props.maxDisplayedPages;
-          }
-          else if (currentPage.value >=
-            totalPages.value - Math.floor(props.maxDisplayedPages / 2)) {
-            startPage = totalPages.value - props.maxDisplayedPages + 1;
-          }
-          else {
-            startPage =
-              currentPage.value - Math.floor(props.maxDisplayedPages / 2);
-            endPage =
-              currentPage.value + Math.floor(props.maxDisplayedPages / 2);
-          }
+        // ------------------
+        const totalPages = computed(() => Math.ceil(20 / 2));
+        async function urlEmbed(CurrentPage) {
+            const response = await fetchData(hostUrl + `&page=${CurrentPage}&pageSize=${pageSize.value}&search=${searchTerm.value}`);
+            userList.value = response.items;
         }
-        // Add the page numbers and dots to the array
-        for (let page = startPage; page <= endPage; page++) {
-          pages.push(page);
+        const displayedPages = computed(() => {
+            const pages = [];
+            if (totalPages.value <= props.maxDisplayedPages) {
+                // If the total number of pages is less than or equal to the max displayed pages,
+                // display all pages without any dots
+                for (let page = 1; page <= totalPages.value; page++) {
+                    pages.push(page);
+                }
+            }
+            else {
+                // Calculate the start and end page based on the current page and maxDisplayedPages
+                let startPage = Math.max(1, currentPage.value - Math.floor(props.maxDisplayedPages / 2));
+                let endPage = Math.min(totalPages.value, startPage + props.maxDisplayedPages - 1);
+                // Adjust the start and end page to include dots if necessary
+                if (endPage - startPage + 1 < props.maxDisplayedPages) {
+                    if (currentPage.value <= Math.ceil(props.maxDisplayedPages / 2)) {
+                        endPage = props.maxDisplayedPages;
+                    }
+                    else if (currentPage.value >=
+                        totalPages.value - Math.floor(props.maxDisplayedPages / 2)) {
+                        startPage = totalPages.value - props.maxDisplayedPages + 1;
+                    }
+                    else {
+                        startPage =
+                            currentPage.value - Math.floor(props.maxDisplayedPages / 2);
+                        endPage =
+                            currentPage.value + Math.floor(props.maxDisplayedPages / 2);
+                    }
+                }
+                // Add the page numbers and dots to the array
+                for (let page = startPage; page <= endPage; page++) {
+                    pages.push(page);
+                }
+                if (startPage > 1) {
+                    pages.unshift("...");
+                }
+                if (endPage < totalPages.value) {
+                    pages.push("...");
+                }
+            }
+            return pages;
+        });
+        async function changePage(page) {
+            if (page >= 1 && page <= totalPages.value) {
+                currentPage.value = page;
+                //   const response = await fetchData(
+                //     `/o/c/projects/?p_auth=${Liferay.authToken}&page=${currentPage.value}&pageSize=${pageSize.value}&search=${searchTerm.value}`
+                //   );
+                //   userList.value = response.items;
+                // }
+                urlEmbed(currentPage.value);
+            }
         }
-        if (startPage > 1) {
-          pages.unshift("...");
+        async function previousPage() {
+            if (currentPage.value > 1) {
+                currentPage.value--;
+                // const response = await fetchData(
+                //   `/o/c/projects/?p_auth=${Liferay.authToken}&page=${currentPage.value}&pageSize=${pageSize.value}&search=${searchTerm.value}`
+                // );
+                // userList.value = response.items;
+                urlEmbed(currentPage.value);
+            }
         }
-        if (endPage < totalPages.value) {
-          pages.push("...");
+        async function nextPage() {
+            if (currentPage.value < totalPages.value) {
+                currentPage.value++;
+                // const response = await fetchData(
+                //   `/o/c/projects/?p_auth=${Liferay.authToken}&page=${currentPage.value}&pageSize=${pageSize.value}&search=${searchTerm.value}`
+                // );
+                // userList.value = response.items;
+                urlEmbed(currentPage.value);
+            }
         }
-      }
-      return pages;
-    });
-    async function changePage(page) {
-      if (page >= 1 && page <= totalPages.value) {
-        currentPage.value = page;
-        //   const response = await fetchData(
-        //     `/o/c/projects/?p_auth=${Liferay.authToken}&page=${currentPage.value}&pageSize=${pageSize.value}&search=${searchTerm.value}`
-        //   );
-        //   userList.value = response.items;
-        // }
-        urlEmbed(currentPage.value);
-      }
-    }
-    async function previousPage() {
-      if (currentPage.value > 1) {
-        currentPage.value--;
-        // const response = await fetchData(
-        //   `/o/c/projects/?p_auth=${Liferay.authToken}&page=${currentPage.value}&pageSize=${pageSize.value}&search=${searchTerm.value}`
-        // );
-        // userList.value = response.items;
-        urlEmbed(currentPage.value);
-      }
-    }
-    async function nextPage() {
-      if (currentPage.value < totalPages.value) {
-        currentPage.value++;
-        // const response = await fetchData(
-        //   `/o/c/projects/?p_auth=${Liferay.authToken}&page=${currentPage.value}&pageSize=${pageSize.value}&search=${searchTerm.value}`
-        // );
-        // userList.value = response.items;
-        urlEmbed(currentPage.value);
-      }
-    }
-    // -----------
-    return {
-      userList,
-      searchTerm,
-      ChangeDateFormat,
-      handleSearch,
-      currentPage,
-      totalPages,
-      displayedPages,
-      changePage,
-      previousPage,
-      nextPage,
-      keyName,
-      ChangePage,
-      ProjectTabs,
-      ProjectApiId,
-      openRiskList
-
-    };
-  }
+        // -----------
+        return {
+            userList,
+            searchTerm,
+            ChangeDateFormat,
+            handleSearch,
+            currentPage,
+            totalPages,
+            displayedPages,
+            changePage,
+            previousPage,
+            nextPage,
+            keyName,
+            ChangePage,
+            ProjectTabs,
+            ProjectApiId,
+            openRiskList,
+            HeaderList
+        };
+    },
+    components: { HeaderList }
 };
 </script>
 
@@ -170,6 +162,7 @@ export default {
 <template>
   
     <div>
+      <HeaderList />
       <div class="List-head">
         <div class="Searchbar">
           <input type="text" v-model="searchTerm" @input="handleSearch" placeholder="Search..." class="search-input" />
@@ -262,7 +255,7 @@ export default {
                         <td>{{ ChangeDateFormat(item.raisedOn) }}</td>
                        
                         <td><a href="javascript:void(0)"><img src="../../assets/images/arrow-up.svg" alt="img"
-                              @click="() => {ChangePage({ fileName: ProjectTabs, key: 'ProjectTabs' }); ProjectApiId = item.id }" /></a>
+                              @click="() => {ChangePage({ fileName: ProjectTabs, key: 'ProjectTabs' }); ProjectApiId = item.id}" /></a>
                         </td>
                       </tr>
                     </tbody>
