@@ -4,27 +4,17 @@ import listpage from "../Global/ListPage.ce.vue"
 
 
 
-const props = defineProps({
-
-ProjectGetOneData: {
-    type: Object,
-    required: true
-  },
-  ProjectApiId: {
-    type: String,
-    required: true
-  },
-})
-
+const ProjectGetOneData =inject("ProjectGetOneData");
 const no_of_Issues =inject("no_of_Issues");
 const no_of_Risks =inject("no_of_Risks");
 
+const ProjectApiId =inject("ProjectApiId");
 
 
 
 
 
-const RisknIssuesUrl=`http://localhost:8080/o/c/risksandissues/?p_auth=${Liferay.authToken}&filter=r_withRiskAndIssues_c_projecttId eq '${props.ProjectApiId}'`;
+const RisknIssuesUrl=`http://localhost:8080/o/c/risksandissues/?p_auth=${Liferay.authToken}&filter=r_withRiskAndIssues_c_projecttId eq '${ProjectApiId.value}'`;
 
 
 
@@ -38,10 +28,10 @@ const RisknIssuesUrl=`http://localhost:8080/o/c/risksandissues/?p_auth=${Liferay
             <h2 class="mt-4 line-height-15">Risks &<br />Issues</h2>
             <div class="mt-4">
               <p class="mb-1 text-default">Project title & ID</p>
-              <p class="mb-0 font-weight-600">{{ props.ProjectGetOneData.projectTitle ?
-                props.ProjectGetOneData.projectTitle : "NO data found" }}</p>
-              <p>STCS - {{ props.ProjectGetOneData.id ?
-                props.ProjectGetOneData.id : "NO data found" }}</p>
+              <p class="mb-0 font-weight-600">{{ ProjectGetOneData.projectTitle ?
+                ProjectGetOneData.projectTitle : "NO data found" }}</p>
+              <p>STCS - {{ ProjectGetOneData.id ?
+                ProjectGetOneData.id : "NO data found" }}</p>
             </div>
             <div class="card bg-light shadow-none rounded-0 mnh-140p mt-4">
               <div class="card-body">
