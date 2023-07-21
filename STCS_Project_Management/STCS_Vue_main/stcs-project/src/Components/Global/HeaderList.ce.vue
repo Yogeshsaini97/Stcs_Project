@@ -13,7 +13,7 @@
                       <p class="breadcrumbmain mb-0 font-10" >
                         <li>Dashboard</li>
                         <li v-for="(item, index) in breadcrumbs" :key="index" >
-                          <span > <img src="../../assets/images/angle-right.svg"
+                          <span > <img src="http://localhost:8080/documents/d/guest/angle-right"
                             class="mx-1 opacity-60" alt="img" /> {{ item.label }}</span>
                         </li>
                       </p>
