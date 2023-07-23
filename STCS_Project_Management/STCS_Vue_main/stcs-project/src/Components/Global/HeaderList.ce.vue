@@ -20,17 +20,17 @@
 
           </div>
         </div>
-        <div class="col-md-6 d-flex justify-content-end z-index-9 mt-1" style="align-items: flex-end;">
+        <div class="col-md-6 d-flex justify-content-end z-index-9 mt-1" style="align-items: center;">
           <!--Data loader start here-->
-          <div style="min-width: 10rem">
+          <div class="mr-2" style="min-width: 10rem">
           <progress-bar actualValue=50 plannedValue=70 />
         </div>
           <!--Data Loader end here-->
           <a href="javascript:void(0)" class="btn btn-primary align-center rounded-10"><img
               src="../../assets/images/filter-white.svg" alt="img" /></a>
-          <a href="javascript:void(0)" class="btn btn-primary align-center rounded-10 ml-4"><img
+          <a href="javascript:void(0)" class="btn btn-primary align-center rounded-10 ml-2"><img
               src="../../assets/images/cloud-download-white.svg" alt="img" /></a>
-          <a href="javascript:void(0)" class="btn btn-light align-center rounded-10 ml-4 text-default"><img
+          <a href="javascript:void(0)" class="btn btn-light align-center rounded-10 ml-2 text-default"><img
               src="../../assets/images/headset.svg"  alt="img" /><div style="min-width: 4rem">Talk to us</div><img
               src="../../assets/images/angle-right.svg"  alt="img" /></a>
         </div>
