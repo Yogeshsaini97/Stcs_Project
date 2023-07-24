@@ -23,7 +23,9 @@
         <div class="col-md-6 d-flex justify-content-end z-index-9 mt-1" style="align-items: flex-end;">
           <!--Data loader start here-->
           <div style="min-width: 10rem">
-          <progress-bar actualValue=50 plannedValue=70 />
+            <div v-if="ProcessBarReactive.display">
+          <ProgressBarCe :actualValue="ProcessBarReactive.actualValue" :plannedValue="ProcessBarReactive.plannedValue" />
+        </div>
         </div>
           <!--Data Loader end here-->
           <a href="javascript:void(0)" class="btn btn-primary align-center rounded-10"><img
@@ -42,13 +44,15 @@
 <script setup>
 import { inject, ref } from 'vue';
 import ListPage from './ListPage.ce.vue';
+import ProgressBarCe from './ProgressBar.ce.vue';
 
 
 const CurrentPage = inject('CurrentPage');
 const ChangePage = inject('ChangePage');
 const breadcrumbs = inject('breadcrumbs');
-
-
+///////////////code for progress bar setting inject  start here ///////////
+const ProcessBarReactive = inject('ProcessBarReactive');
+///////////////code for progress bar setting inject  end here ///////////
 
 const BackButton = () => {
 
