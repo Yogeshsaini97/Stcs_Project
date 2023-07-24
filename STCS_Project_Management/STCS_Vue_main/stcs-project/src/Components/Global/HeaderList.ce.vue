@@ -43,43 +43,19 @@
 
 <script setup>
 import { inject, ref } from 'vue';
-import ListPage from './ListPage.ce.vue';
 import ProgressBarCe from './ProgressBar.ce.vue';
 
 
 const CurrentPage = inject('CurrentPage');
 const ChangePage = inject('ChangePage');
-const breadcrumbs = inject('breadcrumbs');
 ///////////////code for progress bar setting inject  start here ///////////
 const ProcessBarReactive = inject('ProcessBarReactive');
 ///////////////code for progress bar setting inject  end here ///////////
 
-const BackButton = () => {
-
-  // ChangePage({fileName:ListPage,key:'ListPage'})
-  if (CurrentPage.key === "ListPage") {
-
-    console.log("hey buddy")
-    //kept for further chnages
-  }
-  else if (CurrentPage.key === "ProjectTabs") {
-    ChangePage({ fileName: ListPage, key: 'ListPage' })
-    console.log(breadcrumbs.value)
-    breadcrumbs.value.pop();
-
-  }
-
-
-
-
-
-
-
-
-
-
-
-}
+//////////////code for breadcrumbs start here ////////
+const breadcrumbs = inject('breadcrumbs');
+const BackButton = inject('BackButton');
+/////////////code fot  breadcrumbs end here //////////
 
 </script>
 
