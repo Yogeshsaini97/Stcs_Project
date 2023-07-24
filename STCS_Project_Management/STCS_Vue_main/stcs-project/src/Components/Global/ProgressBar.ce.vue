@@ -23,19 +23,16 @@
 export default {
   props: {
   actualValue: {
-    type: Number,
+    type: String,
       required: true,
     },
     plannedValue: {
-      type: Number,
+      type: String,
       required: true,
     },
   },
   setup(props){
-
    return{
-    actualValue:props.actualValue,
-    plannedValue:props.plannedValue
    }
   }
 }
