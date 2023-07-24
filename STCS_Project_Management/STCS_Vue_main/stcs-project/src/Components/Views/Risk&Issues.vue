@@ -31,14 +31,14 @@ const RisknIssuesUrl = `http://localhost:8080/o/c/risksandissues/?p_auth=${Lifer
       <div class="card bg-light shadow-none rounded-0 mnh-140p mt-4">
         <div class="card-body">
           <p class="mb-0 font-40 text-default">{{ no_of_Issues }}</p>
-          <p class="mb-0">Issues<img src="../../assets/images/arrow-up.svg" class="ml-1" alt="img" /></p>
+          <p class="mb-0">Issues<img src="http://localhost:8080/documents/d/guest/arrow-up" class="ml-1" alt="img" /></p>
           <p class="mb-0 font-8 opacity-60">You have <span class="text-danger"> {{ no_of_Issues }}severe</span> issues</p>
         </div>
       </div>
       <div class="card bg-light shadow-none rounded-0 mnh-140p mt-4">
         <div class="card-body">
           <p class="mb-0 font-40 text-default">{{ no_of_Risks }}</p>
-          <p class="mb-0">Risks<img src="../../assets/images/arrow-up.svg" class="ml-1" alt="img" /></p>
+          <p class="mb-0">Risks<img src="http://localhost:8080/documents/d/guest/arrow-up" class="ml-1" alt="img" /></p>
           <p class="mb-0 font-8 opacity-60">You have <span class="text-danger">{{ no_of_Risks }} extreme</span> risks</p>
         </div>
       </div>

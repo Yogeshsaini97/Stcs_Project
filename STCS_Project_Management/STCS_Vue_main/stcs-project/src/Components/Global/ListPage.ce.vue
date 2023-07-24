@@ -48,7 +48,7 @@ export default {
     const keyName = props.keyName;
     const openprojectList = hostUrl.split("/").includes("projectts");
     const openRiskList = hostUrl.split("/").includes("risksandissues");
-    const openScheduleList = hostUrl.split("/").includes("schedules");
+    const openScheduleList = hostUrl.split("/").includes("projectschedules");
     const openDocumentList = hostUrl.split("/").includes("documents");
     const breadcrumbs = inject('breadcrumbs');
     const ChangePage = inject("ChangePage");
@@ -186,8 +186,8 @@ export default {
 
 <template>
   <div>
-    <div class="List-head">
-      <div class="Searchbar">
+    <div class="">
+      <div class="Searchbar mr-3">
         <input type="text" v-model="searchTerm" @input="handleSearch" placeholder="Search..." class="search-input" />
       </div>
       <div class="table-border">
@@ -201,30 +201,16 @@ export default {
 
                   <div v-if="openprojectList">
                     <ProjectListTable />
-
                   </div>
-
                   <div v-if="openRiskList">
                     <RiskIssuesListTable />
-
-
                   </div>
-
-                  <div v-if="openScheduleList">
+                   <div v-if="openScheduleList">
                     <ScheduleListTable />
-
-
-                  </div>
+                   </div>
                   <div v-if="openDocumentList">
                     <ProjectDocumentsListTable />
-
-
-
                   </div>
-
-
-
-
                 </div>
                 <div v-else>
                   Uh! oh Data is empty, Click here to start entering your first field :D
@@ -236,8 +222,6 @@ export default {
 
 
                 <!-- --------- table for  risk & Issues  list-  -->
-
-
               </div>
             </div>
           </div>
@@ -255,20 +239,23 @@ export default {
 
 
     <div class="pagination">
-      <button @click="previousPage" :disabled="currentPage === 1">
-        Previous
+      <button @click="previousPage" :disabled="currentPage === 1" style="    background-color: white;
+      border: none;">
+        Prev
       </button>
       <div v-for="page in displayedPages" :key="page">
         <template v-if="page === '...'">
           <span class="dots">...</span>
         </template>
         <template v-else>
-          <button @click="changePage(page)" :class="{ active: currentPage === page }">
+          <button @click="changePage(page)" :class="{ active: currentPage === page }" style="    background-color: white;
+          border: none;">
             {{ page }}
           </button>
         </template>
       </div>
-      <button @click="nextPage" :disabled="currentPage === totalPages">
+      <button @click="nextPage" :disabled="currentPage === totalPages" style="    background-color: white;
+      border: none;">
         Next
       </button>
     </div>

@@ -23,7 +23,7 @@
         <td>{{ item.requestedBy }}</td>
         <td>{{ ChangeDateFormat(item.raisedOn) }}</td>
 
-        <td><a href="javascript:void(0)"><img src="../../assets/images/arrow-up.svg" alt="img"
+        <td><a href="javascript:void(0)"><img src="http://localhost:8080/documents/d/guest/arrow-up" alt="img"
               @click="() => { ChangePage({ fileName: ProjectTabs, key: 'ProjectTabs' }); ProjectApiId = item.id }" /></a>
         </td>
       </tr>

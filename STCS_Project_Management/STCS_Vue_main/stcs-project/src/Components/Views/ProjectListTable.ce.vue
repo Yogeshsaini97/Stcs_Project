@@ -42,7 +42,7 @@
                 <td>{{ item.risks }}</td>
                 <td>{{ ChangeDateFormat(item.startedDate) }}</td>
                 <td>{{ ChangeDateFormat(item.expectedCompletion) }}</td>
-                <td><a href="javascript:void(0)"><img src="../../assets/images/arrow-up.svg" alt="img"
+                <td><a href="javascript:void(0)"><img src="http://localhost:8080/documents/d/guest/arrow-up" alt="img"
                             @click="() => { ChangePage({ fileName: ProjectTabs, key: 'ProjectTabs' }); ProjectApiId = item.id; breadcrumbs.push({ label: 'stcs-5943' }) }" /></a>
                 </td>
             </tr>

@@ -8,7 +8,6 @@ import { GiveDayandmonthseperate } from '../../Utils/Utils';
 
 import ProjectTabs from "./ProjectTabs.ce.vue"
 
-
 const ChangePage = inject("ChangePage");
 const breadcrumbs = inject('breadcrumbs');
 
@@ -34,9 +33,6 @@ const ProjectApiId = inject("ProjectApiId");
 
 
 <template>
-
-
-
     <table class="table font-weight-600">
         <thead>
           <tr>
@@ -55,7 +51,7 @@ const ProjectApiId = inject("ProjectApiId");
             <td>{{ item.documentName }}<br /><span class="font-weight-400">STCS - {{ item.id }}</span></td>
             <td>{{ item.creator.name }}<br /><span class="font-weight-400">STCS - {{ item.creator.contentType }}</span></td>
             <td>{{ ChangeDateFormat(item.dateCreated) }}</td>
-            <td><a :href="`http://localhost:8080/${item.attachment.link.href}`"><img src="../../assets/images/arrow-up.svg" alt="img" /></a></td>
+            <td><a :href="`http://localhost:8080/${item.attachment.link.href}`"><img src="http://localhost:8080/documents/d/guest/arrow-up" alt="img" /></a></td>
           </tr>
           
         </tbody>
