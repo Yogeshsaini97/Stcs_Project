@@ -15593,6 +15593,27 @@
     z-index: 1;
   }
   
+  .Tab-header li
+  {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+
+  .breadcrumb
+  {
+    padding: 0.75rem 0rem!important;
+    margin-bottom: 0.5rem!important;
+  }
+
+
+  .container-fluid
+  {
+    padding-right: 0px!important;
+  }
+
+
   .breadcrumbmain {
         display: flex;
     flex-wrap: nowrap;

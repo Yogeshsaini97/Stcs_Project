@@ -5,7 +5,7 @@
       <div class="row" style="align-items: flex-start;justify-content: space-between;"> 
         <div class="d-flex">
           <a href="javascript:void(0)" class="btn btn-primary align-center rounded-10" @click="BackButton()"><img
-              src="../../assets/images/angle-right-white.svg" alt="img" /></a>
+              src="http://localhost:8080/documents/d/guest/angle-right-white" alt="img" /></a>
           <div class="ml-3">
             <h4 class="mb-0">Projects</h4>
 
@@ -20,7 +20,7 @@
 
           </div>
         </div>
-        <div class="col-md-6 d-flex justify-content-end z-index-9 mt-1" style="align-items: flex-end;">
+        <div class="col-md-6 d-flex justify-content-end z-index-9 mt-1" style="align-items: center;">
           <!--Data loader start here-->
           <div style="min-width: 10rem">
             <div v-if="ProcessBarReactive.display">
@@ -29,12 +29,12 @@
         </div>
           <!--Data Loader end here-->
           <a href="javascript:void(0)" class="btn btn-primary align-center rounded-10"><img
-              src="../../assets/images/filter-white.svg" alt="img" /></a>
-          <a href="javascript:void(0)" class="btn btn-primary align-center rounded-10 ml-4"><img
-              src="../../assets/images/cloud-download-white.svg" alt="img" /></a>
-          <a href="javascript:void(0)" class="btn btn-light align-center rounded-10 ml-4 text-default"><img
-              src="../../assets/images/headset.svg"  alt="img" /><div style="min-width: 4rem">Talk to us</div><img
-              src="../../assets/images/angle-right.svg"  alt="img" /></a>
+              src="http://localhost:8080/documents/d/guest/filter-white" alt="img" /></a>
+          <a href="javascript:void(0)" class="btn btn-primary align-center rounded-10 ml-2"><img
+              src="http://localhost:8080/documents/d/guest/cloud-download-white" alt="img" /></a>
+          <a href="javascript:void(0)" class="btn btn-light align-center rounded-10 ml-2 text-default"><img
+              src="http://localhost:8080/documents/d/guest/headset"  alt="img" /><div style="min-width: 4rem">Talk to us</div><img
+              src="http://localhost:8080/documents/d/guest/angle-right"  alt="img" /></a>
         </div>
       </div>
     </div>
