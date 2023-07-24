@@ -1,13 +1,10 @@
 <script setup>
 import { inject, ref } from 'vue';
 import { ChangeDateFormat } from '../../Utils/Utils';
-
 const ProjectGetOneData = inject("ProjectGetOneData");
 const api2Data = inject("api2Data");
 const no_of_Issues = inject("no_of_Issues");
 const no_of_Risks = inject("no_of_Risks");
-
-
 </script>
 
 
@@ -73,7 +70,7 @@ const no_of_Risks = inject("no_of_Risks");
             <div class="card grey mnh-140p mb-40">
               <div class="card-body">
                 <p class="mb-0 font-40 text-default">2<span class="font-20">/8</span></p>
-                <p class="mb-0">Current milestone<img src="../../assets/images/arrow-up.svg" class="ml-1 w-15p"
+                <p class="mb-0">Current milestone<img src="http://localhost:8080/documents/d/guest/arrow-up" class="ml-1 w-15p"
                     alt="img" /></p>
                 <p class="mb-0 font-8 opacity-60">Click to view more</p>
               </div>
@@ -100,7 +97,7 @@ const no_of_Risks = inject("no_of_Risks");
             <div class="card grey mnh-140p mb-40">
               <div class="card-body">
                 <p class="mb-0 font-40 text-default">{{ no_of_Issues }}</p>
-                <p class="mb-0">Issues<img src="../../assets/images/arrow-up.svg" class="ml-1 w-15p" alt="img" /></p>
+                <p class="mb-0">Issues<img src="http://localhost:8080/documents/d/guest/arrow-up" class="ml-1 w-15p" alt="img" /></p>
                 <p class="mb-0 font-8 opacity-60">You have <span class="text-danger">12 severe</span> issues</p>
               </div>
             </div>
@@ -109,7 +106,7 @@ const no_of_Risks = inject("no_of_Risks");
             <div class="card grey mnh-140p mb-40">
               <div class="card-body">
                 <p class="mb-0 font-40 text-default">{{ no_of_Risks }}</p>
-                <p class="mb-0">Risks<img src="../../assets/images/arrow-up.svg" class="ml-1 w-15p" alt="img" /></p>
+                <p class="mb-0">Risks<img src="http://localhost:8080/documents/d/guest/arrow-up" class="ml-1 w-15p" alt="img" /></p>
                 <p class="mb-0 font-8 opacity-60">You have <span class="text-danger">3 extreme</span> risks</p>
               </div>
             </div>

@@ -28,7 +28,7 @@
 <template>
   <div id="tabs-container" :class="customClass" ref="tabContainer">
     <div id="tab-headers">
-      <ul>
+      <ul class="Tab-header" style="height: 2.5rem">
         <!-- this shows all of the titles --> 
         <li v-for="(tab, index) in tabs" :key="index" :class="activeTabIndex == index ? 'active' : ''" @click="changeTab(index)" ref="tabHeaders">{{ tab.title }}</li>
       </ul>

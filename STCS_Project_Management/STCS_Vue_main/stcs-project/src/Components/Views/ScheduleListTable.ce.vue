@@ -10,16 +10,12 @@
               </tr>
             </thead>
             <tbody v-if="userList.length > 0">
-
-
-
-
-              <tr v-for="item in userList" :key="item.id">
+             <tr v-for="item in userList" :key="item.id">
                 <td><p class="font-20 mb-1 line-height-8 font-weight-400">{{ GiveDayandmonthseperate(item.startDate).day  }}<br /><span class="font-12">{{ GiveDayandmonthseperate(item.startDate).formattedDate }}</span></p><span class="badge rounded-pill bg-light text-dark font-10"><i class='fa-solid fa-circle font-5 align-middle mr-2'></i>{{ item.scheduleStatus }}</span></td>
                 <td>{{ item.scheduleName }}<br /><span class="font-weight-400">STCS - 149003090</span></td>
                 <td>{{ item.creator.name }}<br /><span class="font-weight-400">{{ item.creator.contentType }}</span></td>
                 <td>{{ formatTimeTo12HourFormat(item.dateCreated) }}</td>
-                <td><a href="javascript:void(0)"><img src="../../assets/images/arrow-up.svg" alt="img" /></a></td>
+                <td><a href="javascript:void(0)"><img src="http://localhost:8080/documents/d/guest/arrow-up" alt="img" /></a></td>
               </tr>
              
              
