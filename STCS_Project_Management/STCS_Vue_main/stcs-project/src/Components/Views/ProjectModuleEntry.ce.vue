@@ -14,16 +14,40 @@ import HeaderList from '../Global/HeaderList.ce.vue';
 
 const CurrentPage = reactive({ fileName: ListPage, key: "ListPage" });
 const ProjectApiId = ref(null);
+
+///////////////code for progress bar setting defined start here ///////////
+const ProcessBarReactive = reactive({ actualValue:null, plannedValue:null ,display:false });
+provide('ProcessBarReactive',ProcessBarReactive);
+///////////////code for progress bar setting end here /////////////////////
+
+///////////////code for breadcrumbs setting start here /////////////////////
 const breadcrumbs = ref([
   { label: 'Programs' },
   { label: 'projects' }
 ]);
+provide('breadcrumbs', breadcrumbs);
+const BackButton = () => {
+  console.log("CurrentPage.key.back",CurrentPage.key)
+// ChangePage({fileName:ListPage,key:'ListPage'})
+if (CurrentPage.key === "ListPage") {
 
+  console.log("hey buddy")
+  //kept for further chnages
+}
+else if (CurrentPage.key === "ProjectTabs" ) {
+  ChangePage({ fileName: ListPage, key: 'ListPage' })
+  console.log(breadcrumbs.value)
+  breadcrumbs.value.pop();
 
-const applyFilterValueArray=reactive([["lef","righ"],["leh","ri"],["lo","go"]]);
-let projectHostUrl = ref(`http://localhost:8080/o/c/projectts/?p_auth=${Liferay.authToken}&filter=`)
+}
+}
+provide("BackButton",BackButton)
+///////////////code for breadcrumbs setting end here /////////////////////
 
+const projectHostUrl = `http://localhost:8080/o/c/projectts/?p_auth=${Liferay.authToken}`
 
+provide('CurrentPage', CurrentPage);
+provide('ProjectApiId', ProjectApiId);
 
 onUpdated(() => {
   // text content should be the same as current `count.value`
@@ -43,6 +67,12 @@ const ChangePage = (PageToRender) => {
     ProcessBarReactive.display=true;
   }
   ///////////////setting of ProcessBarReactive end here/////////
+  //////////////breadcrumbs changes start here//////////
+  if(CurrentPage.key=="ListPage")
+  {
+    ProcessBarReactive.display=false;
+  }
+  //////////////breadcrumbs changes end here//////////
   // CurrentPage={PageToRender};
 }
 
@@ -58,8 +88,8 @@ const changekey=()=>
 
 }
 ///////////////code for progress bar setting defined start here ///////////
-const ProcessBarReactive = reactive({ actualValue:null, plannedValue:null ,display:false });
-provide('ProcessBarReactive',ProcessBarReactive);
+// const ProcessBarReactive = reactive({ actualValue:null, plannedValue:null ,display:false });
+// provide('ProcessBarReactive',ProcessBarReactive);
 ///////////////code for progress bar setting end here /////////////////////
 provide('CurrentPage', CurrentPage);
 provide('ProjectApiId', ProjectApiId);
