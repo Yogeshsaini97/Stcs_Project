@@ -72,6 +72,7 @@ export default {
     });
 
     provide("userList", userList);
+    
     async function handleSearch() {
       const response = await fetchData(hostUrl + `&search=${searchTerm.value}`);
       userList.value = response.items;

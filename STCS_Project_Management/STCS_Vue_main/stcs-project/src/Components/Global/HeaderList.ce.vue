@@ -16,9 +16,7 @@
                   {{ item.label }}</span>
               </li>
             </p>
-
-
-          </div>
+ </div>
         </div>
         <div class="col-md-6 d-flex justify-content-end z-index-9 mt-1" style="align-items: center;">
           <!--Data loader start here-->

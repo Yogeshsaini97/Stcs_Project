@@ -63,13 +63,7 @@ import ProjectTabs from "./ProjectTabs.ce.vue"
 
 const ChangePage = inject("ChangePage");
 const breadcrumbs = inject('breadcrumbs');
-
-
 const userList = inject('userList');
-
-
-
-
 const ProjectApiId = inject("ProjectApiId");
 
 

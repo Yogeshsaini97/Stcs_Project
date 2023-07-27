@@ -18,16 +18,12 @@ const breadcrumbs = ref([
   { label: 'Programs' },
   { label: 'projects' }
 ]);
-///////////////code for progress bar setting defined start here ///////////
-const ProcessBarReactive = reactive({ actualValue:null, plannedValue:null ,display:false });
-provide('ProcessBarReactive',ProcessBarReactive);
-///////////////code for progress bar setting end here /////////////////////
 
-const projectHostUrl = `http://localhost:8080/o/c/projectts/?p_auth=${Liferay.authToken}`
 
-provide('CurrentPage', CurrentPage);
-provide('ProjectApiId', ProjectApiId);
-provide('breadcrumbs', breadcrumbs);
+const applyFilterValueArray=reactive([["lef","righ"],["leh","ri"],["lo","go"]]);
+let projectHostUrl = ref(`http://localhost:8080/o/c/projectts/?p_auth=${Liferay.authToken}&filter=`)
+
+
 
 onUpdated(() => {
   // text content should be the same as current `count.value`
@@ -36,7 +32,7 @@ onUpdated(() => {
 
 
 const ChangePage = (PageToRender) => {
-    console.log("changepage worked,",PageToRender)
+  console.log("changepage worked,",PageToRender)
   CurrentPage.fileName = PageToRender.fileName;
   CurrentPage.key = PageToRender.key;
   ///////////////setting of ProcessBarReactive start here/////////
@@ -49,6 +45,25 @@ const ChangePage = (PageToRender) => {
   ///////////////setting of ProcessBarReactive end here/////////
   // CurrentPage={PageToRender};
 }
+
+
+const changekey=()=>
+{
+  console.log("hy")
+//   console.log(projectHostUrl.value)
+//  projectHostUrl.value=projectHostUrl.value + `${applyFilterValue.value}`;
+//  console.log(projectHostUrl.value);
+ console.log(applyFilterValueArray)
+ 
+
+}
+///////////////code for progress bar setting defined start here ///////////
+const ProcessBarReactive = reactive({ actualValue:null, plannedValue:null ,display:false });
+provide('ProcessBarReactive',ProcessBarReactive);
+///////////////code for progress bar setting end here /////////////////////
+provide('CurrentPage', CurrentPage);
+provide('ProjectApiId', ProjectApiId);
+provide('breadcrumbs', breadcrumbs);
 
 provide('ChangePage', ChangePage);
 
