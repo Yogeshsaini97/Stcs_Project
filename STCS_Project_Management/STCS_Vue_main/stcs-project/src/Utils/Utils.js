@@ -8,7 +8,7 @@ export async function fetchData(url) {
       method: 'GET'
       ,
       headers: {
-        Authorization: 'Bearer ' + "eyJ0eXAiOiJhdCtqd3QiLCJhbGciOiJSUzI1NiJ9.eyJqdGkiOiJhOWE5ZGU4MzRmODM4MDcwNDE2OTJhY2FiNzg1MTJhNjQ2YWI4ZWZiZTFhYzM2OWM5NDU0MmI2YjhiNTk4ZWYiLCJjbGllbnRfaWQiOiJpZC0zZTRlYzdlZC00YjVmLTM4YmYtZTQ3MC1hNTEwOGJjMzVkYzAiLCJpYXQiOjE2OTA0NDg1NzksImV4cCI6MTY5MDQ0OTE3OSwic3ViIjoiMjAxMjQiLCJ1c2VybmFtZSI6InRlc3QiLCJpc3MiOiJsb2NhbGhvc3QiLCJzY29wZSI6IkNfUHJvamVjdFNjaGVkdWxlLmV2ZXJ5dGhpbmcud3JpdGUgQ19Qcm9qZWN0dC5ldmVyeXRoaW5nLndyaXRlIENfUHJvamVjdC5ldmVyeXRoaW5nLndyaXRlIENfUmlza3NhbmRJc3N1ZS5ldmVyeXRoaW5nIENfUmlza3NhbmRJc3N1ZS5ldmVyeXRoaW5nLndyaXRlIENfUHJvamVjdFNjaGVkdWxlLmV2ZXJ5dGhpbmcgQ19Qcm9qZWN0U2NoZWR1bGUuZXZlcnl0aGluZy5yZWFkIENfUmlza3NhbmRJc3N1ZS5ldmVyeXRoaW5nLnJlYWQgQ19Qcm9qZWN0LmV2ZXJ5dGhpbmcgQ19Qcm9qZWN0LmV2ZXJ5dGhpbmcucmVhZCBDX0RvY3VtZW50LmV2ZXJ5dGhpbmcucmVhZCBDX1Byb2plY3R0LmV2ZXJ5dGhpbmcucmVhZCBDX1Byb2plY3R0LmV2ZXJ5dGhpbmcgQ19Eb2N1bWVudC5ldmVyeXRoaW5nIiwiZ3JhbnRfdHlwZSI6ImNsaWVudF9jcmVkZW50aWFscyJ9.M_bXsRlHMG82VDH8qHX_h6_XivH8PAxD6M2AcRQzEZAihXKoeJDvRut8E2t4Ql2RE2Cro6XijK3OVt_48NMl4MKHZcWatxApfApUVhM4txXuJZmHBMoMpanNnC4Ar4M4i3QP17I4Yt9lx5QijFrSf3rXqatcdsZJBwaG1CdKQBzubfw1rlv2GEl4kqy8ILqIQW2NxF6odQg4-3TgFLmLpwpZNmeYFsAmrJON3m4mQzwrn5zKbonnEfTC4uKpbFtTnBOvVF85s29Ul_JD5K0j-Ws970_677Mur39GkcBwiMRuDcRZQ_iSwa5ItjXc6GFyGbKpvNWYsjSs6h7CyIicWA",
+        Authorization: 'Bearer ' + "eyJ0eXAiOiJhdCtqd3QiLCJhbGciOiJSUzI1NiJ9.eyJqdGkiOiJkYzQ0YzkxYmY3YTA4MDNiMzlhNzE5MjMzZTNiNmUwYTM2NmUzOTZjMmQ3NDEwNjgyMWM0N2ViYmI2OWNkMyIsImNsaWVudF9pZCI6ImlkLTNlNGVjN2VkLTRiNWYtMzhiZi1lNDcwLWE1MTA4YmMzNWRjMCIsImlhdCI6MTY5MDU0NjM1NywiZXhwIjoxNjkwNTQ2OTU3LCJzdWIiOiIyMDEyNCIsInVzZXJuYW1lIjoidGVzdCIsImlzcyI6ImxvY2FsaG9zdCIsInNjb3BlIjoiQ19Qcm9qZWN0U2NoZWR1bGUuZXZlcnl0aGluZy53cml0ZSBDX1Byb2plY3R0LmV2ZXJ5dGhpbmcud3JpdGUgQ19Qcm9qZWN0LmV2ZXJ5dGhpbmcud3JpdGUgQ19SaXNrc2FuZElzc3VlLmV2ZXJ5dGhpbmcgQ19SaXNrc2FuZElzc3VlLmV2ZXJ5dGhpbmcud3JpdGUgQ19Qcm9qZWN0U2NoZWR1bGUuZXZlcnl0aGluZyBDX1Byb2plY3RTY2hlZHVsZS5ldmVyeXRoaW5nLnJlYWQgQ19SaXNrc2FuZElzc3VlLmV2ZXJ5dGhpbmcucmVhZCBDX1Byb2plY3QuZXZlcnl0aGluZyBDX1Byb2plY3QuZXZlcnl0aGluZy5yZWFkIENfRG9jdW1lbnQuZXZlcnl0aGluZy5yZWFkIENfUHJvamVjdHQuZXZlcnl0aGluZy5yZWFkIENfUHJvamVjdHQuZXZlcnl0aGluZyBDX0RvY3VtZW50LmV2ZXJ5dGhpbmciLCJncmFudF90eXBlIjoiY2xpZW50X2NyZWRlbnRpYWxzIn0.Ry6ZfZnVh4oQpzOl4uruv8w-Gc3kCSwgttgMJIibV7Xr8NgqPf3BhUVb5kRMp6VlLX36vepdEv-7h0Nl9M6FxU6ECUgWHsyoBaJ7OYiCrBWO6pgVQY2SZAtcUnng4GmQRmJLrhMGh--XWVd5oUiuURWyjRpQkhofPOizRfa2h9bbXEAVFrSxIs3p11ePvSi6yCjuk1ZWg_9aDMC2gwemygDl64krW5gxaLOb9J2ztUvqquLwKiNQf4sdQ3s5YVafHtjRNpzgvBUREbJDCzi3rA-SZvS3bGqkWZgv7whj9S67_ldEM57cOMsvUzO50lmvXEAy2BNjmlHssNXrEyeCOQ",
         'Content-Type': 'application/json'
       }
     })
@@ -60,6 +60,25 @@ const yearTwoDigits = new Intl.DateTimeFormat('en', { year: '2-digit' }).format(
 const formattedDate = `${monthAbbreviation} '${yearTwoDigits}`;
 
 return {day, formattedDate};
+}
+
+
+export function find_num_of_risksnissues(apiGot){
+  no_of_Risks=0;
+  no_of_Issues=0;
+
+  console.log(apiGot)
+  apiGot.items.forEach(element => {
+
+    if (element.type == "Issue") {
+      no_of_Issues++;
+    }
+    else if (element.type == "Risk") {
+      no_of_Risks++;
+    }
+
+
+  });
 }
 
 

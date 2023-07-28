@@ -50,9 +50,10 @@ export default {
     const openRiskList = hostUrl.split("/").includes("risksandissues");
     const openScheduleList = hostUrl.split("/").includes("projectschedules");
     const openDocumentList = hostUrl.split("/").includes("documents");
+    
     const breadcrumbs = inject('breadcrumbs');
     const ChangePage = inject("ChangePage");
-    const ProjectApiId = inject("ProjectApiId");
+   
 
 
     console.log(hostUrl)
@@ -171,13 +172,13 @@ export default {
       keyName,
       ChangePage,
       ProjectTabs,
-      ProjectApiId,
       openRiskList,
       HeaderList,
       breadcrumbs,
       openprojectList,
       openScheduleList,
-      openDocumentList
+      openDocumentList,
+      hostUrl
     };
   },
   components: { HeaderList, ProjectListTable, RiskIssuesListTable, ScheduleListTable, ProjectDocumentsListTable }
@@ -198,26 +199,23 @@ export default {
               <div class="table-responsive">
 
                 <!-- --------- table for  project list-  -->
-                <div v-if="userList.length > 0">
+                <div >
 
                   <div v-if="openprojectList">
-                    <ProjectListTable />
+                   
+                    <ProjectListTable :hostUrl="hostUrl" />
                   </div>
                   <div v-if="openRiskList">
-                    <RiskIssuesListTable />
+                    <RiskIssuesListTable :hostUrl="hostUrl" />
                   </div>
                    <div v-if="openScheduleList">
-                    <ScheduleListTable />
+                    <ScheduleListTable :hostUrl="hostUrl" />
                    </div>
                   <div v-if="openDocumentList">
-                    <ProjectDocumentsListTable />
+                    <ProjectDocumentsListTable :hostUrl="hostUrl" />
                   </div>
                 </div>
-                <div v-else>
-                  Uh! oh Data is empty, Click here to start entering your first field :D
-                  <button> Add Project</button>
-
-                </div>
+             
 
 
 

@@ -1,3 +1,6 @@
+
+<style src="./assets//Style/Dropdown.css"></style>
+
 <style src="./assets//Style/ListPage.css"></style> <!-- Include the external CSS file -->
 <style src="./assets//Style/Risk&Issues.css"></style> <!-- Include the external CSS file -->
 <style src="./assets//Style/Main.css"></style> <!-- Include the external CSS file -->
@@ -10,13 +13,7 @@
 <script setup>
 import ProjectModuleEntry from "./Components/Views/ProjectModuleEntry.ce.vue"
 
-console.log("hello india")
-    	console.log("-------------")
-    	// console.log(Liferay.Language.get("key"))
-    	// console.log(Liferay.Language.get("Issues"))
-    	//     	console.log(Liferay)
-    	// console.log(Liferay.Language)
-    	console.log("-------------")
+
 </script>
 
 <template>

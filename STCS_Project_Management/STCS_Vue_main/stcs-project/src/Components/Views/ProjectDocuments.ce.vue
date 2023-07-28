@@ -3,7 +3,6 @@ import { inject } from "vue";
 import listpage from "../Global/ListPage.ce.vue"
 
 
-
 const ProjectGetOneData = inject("ProjectGetOneData");
 const no_of_Issues = inject("no_of_Issues");
 const no_of_Risks = inject("no_of_Risks");

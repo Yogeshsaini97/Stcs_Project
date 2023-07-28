@@ -1,6 +1,21 @@
 <template>
+
+    <div> 
+        <div class="beautiful-dropdown">
+            <a  @click="toggleDropdown" href="javascript:void(0)" class="btn dropdown-button btn-primary align-center rounded-10"><img
+                src="http://localhost:8080/documents/d/guest/filter-white" alt="img" /></a>
+         
+          <ul v-if="isOpen" class="dropdown-list">
+            <li v-for="option in dropdownOptions" :key="option" @click="selectOption(option)">
+                {{ option }}
+                <hr>
+            </li>
+          </ul>
+       
+        </div>
+       
     <table class="table font-weight-600">
-        <thead>
+ <thead>
             <tr>
                 <th>Status</th>
                 <th>Program title & ID</th>
@@ -54,18 +69,64 @@
             </tr>
         </tbody>
     </table>
+    </div>
 </template>
 
+
+
+  
+  
+
 <script setup>
-import { inject } from 'vue';
-import { ChangeDateFormat } from '../../Utils/Utils';
+import { inject, provide, ref } from 'vue';
+import { ChangeDateFormat,fetchData } from '../../Utils/Utils';
 import ProjectTabs from "./ProjectTabs.ce.vue"
+
+
+
+
+const props = defineProps({
+  hostUrl: { type: Object, required: true }
+ 
+})
+
+const dropdownOptions= ["All",'Active','on hold', 'completed'];
+
+
+
 
 
 const ChangePage = inject("ChangePage");
 const breadcrumbs = inject('breadcrumbs');
 const userList = inject('userList');
 const ProjectApiId = inject("ProjectApiId");
+
+
+const isOpen = ref(false);
+const selectedOption = ref(dropdownOptions[0]);
+  
+
+    function toggleDropdown() {
+      isOpen.value = !isOpen.value;
+    }
+
+    async function selectOption(option) {
+      selectedOption.value = option;
+      let newUrl;
+      newUrl=props.hostUrl + `&filter=statusActive eq '${option}'`;
+     
+      if(option=="All")
+      {
+        newUrl= props.hostUrl + `&filter=`;
+        console.log("heyy")
+      }
+      const response = await fetchData(newUrl);
+      userList.value = response.items;
+      console.log(option)
+    
+      isOpen.value = false;
+    }
+
 
 
 
