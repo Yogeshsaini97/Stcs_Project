@@ -26,12 +26,12 @@
 
 <script setup>
 import { inject } from 'vue';
-import { ChangeDateFormat } from '../../Utils/Utils';
-import { formatTimeTo12HourFormat } from '../../Utils/Utils';
-import { GiveDayandmonthseperate } from '../../Utils/Utils';
+import { ChangeDateFormat } from '../../../Utils/Utils';
+import { formatTimeTo12HourFormat } from '../../../Utils/Utils';
+import { GiveDayandmonthseperate } from '../../../Utils/Utils';
 
 
-import ProjectTabs from "./ProjectTabs.ce.vue"
+import ProjectTabs from "../ProjectTabs.ce.vue"
 
 
 const ChangePage = inject("ChangePage");

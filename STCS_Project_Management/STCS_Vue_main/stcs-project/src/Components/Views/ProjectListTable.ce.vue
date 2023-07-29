@@ -1,7 +1,13 @@
 <template>
 
     <div> 
-        <div class="beautiful-dropdown">
+        
+      
+        <div class="beautiful-dropdown" style="position: absolute;
+        top: -7rem;
+        right: 12rem;
+        z-index: 10;
+        ">
             <a  @click="toggleDropdown" href="javascript:void(0)" class="btn dropdown-button btn-primary align-center rounded-10"><img
                 src="http://localhost:8080/documents/d/guest/filter-white" alt="img" /></a>
          
@@ -13,6 +19,12 @@
           </ul>
        
         </div>
+        <DownloadToExcel style="position: absolute;
+        top: -7rem;
+        right: 9rem;
+        z-index: 10;
+        "/>
+  
        
     <table class="table font-weight-600">
  <thead>
@@ -81,6 +93,7 @@
 import { inject, provide, ref } from 'vue';
 import { ChangeDateFormat,fetchData } from '../../Utils/Utils';
 import ProjectTabs from "./ProjectTabs.ce.vue"
+import DownloadToExcel from '../Global/DownloadToExcel.ce.vue';
 
 
 

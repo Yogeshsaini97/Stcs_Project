@@ -11,12 +11,19 @@ import { provide, reactive, ref } from 'vue';
 import ListPage from '../Global/ListPage.ce.vue';
 import HeaderList from '../Global/HeaderList.ce.vue';
 
+const datacheck=reactive([])
+provide('datacheck', datacheck);
+
+console.log(datacheck)
+
 const projectHostUrl = `http://localhost:8080/o/c/projectts/?p_auth=${Liferay.authToken}`;
 
 
 ///////////////
+
 const CurrentPage = reactive({ fileName: ListPage, key: "ListPage" });
 provide('CurrentPage', CurrentPage);
+
 //////////////
 
 
@@ -24,8 +31,7 @@ provide('CurrentPage', CurrentPage);
 //////////
 const ProjectApiId = ref(null);
 provide('ProjectApiId', ProjectApiId);
-
-//////
+/////////
 
 
 
@@ -102,7 +108,7 @@ provide('ChangePage', ChangePage);
 const check=()=>
 {
 
-  console.log(filterArray.forEach((item)=>{return item}))
+console.log(datacheck)
 
 }
 

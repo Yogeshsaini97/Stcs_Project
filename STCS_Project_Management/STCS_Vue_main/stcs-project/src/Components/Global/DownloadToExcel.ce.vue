@@ -1,6 +1,6 @@
 <template>
-    <a @click="downloadFile()" href="javascript:void(0)" class="btn btn-primary align-center rounded-10 ml-2"><img
-        src="http://localhost:8080/documents/d/guest/cloud-download-white" alt="img" /></a>
+    <a @click="downloadFile()" href="javascript:void(0)" class="downloadexcel btn btn-primary align-center rounded-10 ml-2" ><img
+        src="http://localhost:8080/documents/d/guest/cloud-download-white" style="" alt="img" /></a>
 </template>
 
 

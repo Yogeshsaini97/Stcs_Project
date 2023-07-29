@@ -2,11 +2,13 @@
 import { createApp, inject, onMounted, provide, ref } from 'vue'
 import Tabs from "../Tabs/Tabs.vue"
 import Tab from "../Tabs/Tab.vue"
-import Overview from "./Overview.vue"
+import Overview from "./Overview/Overview.vue"
 import { fetchData } from '../../Utils/Utils';
-import RiskIssues from './Risk&Issues.vue';
-import Schedule from './Schedule.vue';
-import ProjectDocuments from './ProjectDocuments.ce.vue';
+import RiskIssues from './RiskandIssues/Risk&Issues.vue';
+import Schedule from './Schedule/Schedule.vue';
+import ProjectDocuments from './Documents/ProjectDocuments.ce.vue';
+import ProjectApproval from './Approvals/ProjectApproval.ce.vue';
+import ProjectInvoice from './Invoices/ProjectInvoice.ce.vue';
 
 
 const ProjectApiId = inject('ProjectApiId');
@@ -107,11 +109,16 @@ provide("no_of_Risks", no_of_Risks);
       </div>
      
     </Tab>
+    
     <Tab title="Approvals">
-      Aenean varius dui eget ante finibus, sit amet finibus nisi facilisis. Nunc pellentesque, risus et pretium hendrerit.
+      <div v-if="ProjectGetOneData">
+        <ProjectApproval />
+      </div>
     </Tab>
     <Tab title="Invoices">
-      Aenean varius dui eget ante finibus, sit amet finibus nisi facilisis. Nunc pellentesque, risus et pretium hendrerit.
+      <div v-if="ProjectGetOneData">
+        <ProjectInvoice />
+      </div>
     </Tab>
     <Tab title="Stakeholders">
       Aenean varius dui eget ante finibus, sit amet finibus nisi facilisis. Nunc pellentesque, risus et pretium hendrerit.
