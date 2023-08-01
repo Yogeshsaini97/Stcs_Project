@@ -1,8 +1,11 @@
 <script setup>
-import { inject } from "vue";
-import listpage from "../Global/ListPage.ce.vue"
+import { inject, onMounted } from "vue";
+import listpage from "../../Global/ListPage.ce.vue"
 
 
+onMounted(async () => {
+    console.log("hello i am document")
+    });
 
 const ProjectGetOneData = inject("ProjectGetOneData");
 const no_of_Issues = inject("no_of_Issues");

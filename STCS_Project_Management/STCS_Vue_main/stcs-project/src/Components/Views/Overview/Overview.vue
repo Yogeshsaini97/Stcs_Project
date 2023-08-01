@@ -1,6 +1,6 @@
 <script setup>
 import { inject, ref } from 'vue';
-import { ChangeDateFormat } from '../../Utils/Utils';
+import { ChangeDateFormat } from '../../../Utils/Utils';
 const ProjectGetOneData = inject("ProjectGetOneData");
 const api2Data = inject("api2Data");
 const no_of_Issues = inject("no_of_Issues");

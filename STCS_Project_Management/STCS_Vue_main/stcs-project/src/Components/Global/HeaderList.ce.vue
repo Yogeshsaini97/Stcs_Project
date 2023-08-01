@@ -16,9 +16,7 @@
                   {{ item.label }}</span>
               </li>
             </p>
-
-
-          </div>
+ </div>
         </div>
         <div class="col-md-6 d-flex justify-content-end z-index-9 mt-1" style="align-items: center;">
           <!--Data loader start here-->
@@ -28,10 +26,8 @@
         </div>
         </div>
           <!--Data Loader end here-->
-          <a href="javascript:void(0)" class="btn btn-primary align-center rounded-10"><img
-              src="http://localhost:8080/documents/d/guest/filter-white" alt="img" /></a>
-          <a href="javascript:void(0)" class="btn btn-primary align-center rounded-10 ml-2"><img
-              src="http://localhost:8080/documents/d/guest/cloud-download-white" alt="img" /></a>
+         
+        
           <a href="javascript:void(0)" class="btn btn-light align-center rounded-10 ml-2 text-default"><img
               src="http://localhost:8080/documents/d/guest/headset"  alt="img" /><div style="min-width: 4rem">Talk to us</div><img
               src="http://localhost:8080/documents/d/guest/angle-right"  alt="img" /></a>
@@ -44,6 +40,7 @@
 <script setup>
 import { inject, ref } from 'vue';
 import ProgressBarCe from './ProgressBar.ce.vue';
+
 
 
 const CurrentPage = inject('CurrentPage');

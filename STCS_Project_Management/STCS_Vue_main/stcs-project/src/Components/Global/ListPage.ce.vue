@@ -1,19 +1,21 @@
 <script>
 import { ref, onMounted, computed, inject, provide } from "vue";
-
 import { ChangeDateFormat, fetchData } from "../../Utils/Utils";
 import ProjectTabs from "../Views/ProjectTabs.ce.vue"
 import HeaderList from "./HeaderList.ce.vue";
-
 import ProjectListTable from "../Views/ProjectListTable.ce.vue";
+import RiskIssuesListTable from "../Views/RiskandIssues/RiskIssuesListTable.ce.vue";
+import ScheduleListTable from "../Views/Schedule/ScheduleListTable.ce.vue";
+import ProjectDocumentsListTable from "../Views/Documents/ProjectDocumentsListTable.ce.vue";
+import ProjectApprovalListTable from "../Views/Approvals/ProjectApprovalListTable.ce.vue";
+import ProjectInvoiceListTable from "../Views/Invoices/ProjectInvoiceListTable.ce.vue";
 
-import RiskIssuesListTable from "../Views/RiskIssuesListTable.ce.vue";
-import ScheduleListTable from "../Views/ScheduleListTable.ce.vue";
-import ProjectDocumentsListTable from "../Views/ProjectDocumentsListTable.ce.vue";
+import StakeholdersListTable from "../Views/Stakeholders/StakeholdersListTable.ce.vue";
+
+import MilestonesListTable from "../Views/Milestones/MilestonesListTable.ce.vue";
 export default {
 
-
-  props: {
+props: {
     keyName: {
       type: Object,
       required: true,
@@ -50,28 +52,28 @@ export default {
     const openRiskList = hostUrl.split("/").includes("risksandissues");
     const openScheduleList = hostUrl.split("/").includes("projectschedules");
     const openDocumentList = hostUrl.split("/").includes("documents");
+    const openApprovalList = hostUrl.split("/").includes("approvals");
+    const openInvoiceList = hostUrl.split("/").includes("invoices");
+    const openStakeholdersList = hostUrl.split("/").includes("stakeholders");
+    const openMilestoneList = hostUrl.split("/").includes("milestones");
     const breadcrumbs = inject('breadcrumbs');
     const ChangePage = inject("ChangePage");
-    const ProjectApiId = inject("ProjectApiId");
-
-
-    console.log(hostUrl)
-
-
-
+    const datacheck = inject('datacheck');
 
     onMounted(async () => {
       try {
         const response = await fetchData(hostUrl + `&pageSize=${pageSize.value}`);
         userList.value = response.items;
-
       }
       catch (error) {
         console.error(error);
       }
     });
 
+    datacheck.value=userList
+    console.log(userList)
     provide("userList", userList);
+    
     async function handleSearch() {
       const response = await fetchData(hostUrl + `&search=${searchTerm.value}`);
       userList.value = response.items;
@@ -170,16 +172,24 @@ export default {
       keyName,
       ChangePage,
       ProjectTabs,
-      ProjectApiId,
       openRiskList,
       HeaderList,
       breadcrumbs,
       openprojectList,
       openScheduleList,
-      openDocumentList
+      openDocumentList,
+      openApprovalList,
+      openInvoiceList,
+      openStakeholdersList,
+      openMilestoneList,
+      hostUrl,
+      ProjectDocumentsListTable,
+      ProjectApprovalListTable,
+      ProjectInvoiceListTable,
+      MilestonesListTable
     };
   },
-  components: { HeaderList, ProjectListTable, RiskIssuesListTable, ScheduleListTable, ProjectDocumentsListTable }
+  components: { HeaderList, ProjectListTable, RiskIssuesListTable, ScheduleListTable, ProjectDocumentsListTable, ProjectApprovalListTable, ProjectInvoiceListTable, StakeholdersListTable, MilestonesListTable }
 };
 </script>
 
@@ -197,31 +207,35 @@ export default {
               <div class="table-responsive">
 
                 <!-- --------- table for  project list-  -->
-                <div v-if="userList.length > 0">
+                <div >
 
                   <div v-if="openprojectList">
-                    <ProjectListTable />
+                   
+                    <ProjectListTable :hostUrl="hostUrl" />
                   </div>
                   <div v-if="openRiskList">
-                    <RiskIssuesListTable />
+                    <RiskIssuesListTable :hostUrl="hostUrl" />
                   </div>
                    <div v-if="openScheduleList">
-                    <ScheduleListTable />
+                    <ScheduleListTable :hostUrl="hostUrl" />
                    </div>
                   <div v-if="openDocumentList">
-                    <ProjectDocumentsListTable />
+                    <ProjectDocumentsListTable :hostUrl="hostUrl" />
+                  </div>
+                  <div v-if="openApprovalList">
+                    <ProjectApprovalListTable :hostUrl="hostUrl" />
+                  </div>
+                  <div v-if="openInvoiceList">
+                    <ProjectInvoiceListTable :hostUrl="hostUrl" />
+                  </div>
+                  <div v-if="openStakeholdersList">
+                    <StakeholdersListTable :hostUrl="hostUrl" />
+                  </div>
+                  <div v-if="openMilestoneList">
+                    <MilestonesListTable :hostUrl="hostUrl" />
                   </div>
                 </div>
-                <div v-else>
-                  Uh! oh Data is empty, Click here to start entering your first field :D
-                  <button> Add Project</button>
-
-                </div>
-
-
-
-
-                <!-- --------- table for  risk & Issues  list-  -->
+ <!-- --------- table for  risk & Issues  list-  -->
               </div>
             </div>
           </div>

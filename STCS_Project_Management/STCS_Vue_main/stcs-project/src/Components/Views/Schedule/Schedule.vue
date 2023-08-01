@@ -1,7 +1,7 @@
 
 <script setup>
 import { inject } from "vue";
-import listpage from "../Global/ListPage.ce.vue"
+import listpage from "../../Global/ListPage.ce.vue"
 
 
 
