@@ -58,7 +58,6 @@ right:20px;"/>
               alt="img" /></a></td>
       </tr>
       
-      http://localhost:8080/documents/d/guest/
       
     </tbody>
     <tbody v-else>
