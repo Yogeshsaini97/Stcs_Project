@@ -1,8 +1,6 @@
 <template>
 
     <div> 
-        
-      
         <div class="beautiful-dropdown" style="position: absolute;
         top: -7rem;
         right: 12rem;

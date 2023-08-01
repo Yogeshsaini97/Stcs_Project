@@ -10,6 +10,9 @@ import ProjectDocumentsListTable from "../Views/Documents/ProjectDocumentsListTa
 import ProjectApprovalListTable from "../Views/Approvals/ProjectApprovalListTable.ce.vue";
 import ProjectInvoiceListTable from "../Views/Invoices/ProjectInvoiceListTable.ce.vue";
 
+import StakeholdersListTable from "../Views/Stakeholders/StakeholdersListTable.ce.vue";
+
+import MilestonesListTable from "../Views/Milestones/MilestonesListTable.ce.vue";
 export default {
 
 props: {
@@ -51,6 +54,8 @@ props: {
     const openDocumentList = hostUrl.split("/").includes("documents");
     const openApprovalList = hostUrl.split("/").includes("approvals");
     const openInvoiceList = hostUrl.split("/").includes("invoices");
+    const openStakeholdersList = hostUrl.split("/").includes("stakeholders");
+    const openMilestoneList = hostUrl.split("/").includes("milestones");
     const breadcrumbs = inject('breadcrumbs');
     const ChangePage = inject("ChangePage");
     const datacheck = inject('datacheck');
@@ -175,13 +180,16 @@ props: {
       openDocumentList,
       openApprovalList,
       openInvoiceList,
+      openStakeholdersList,
+      openMilestoneList,
       hostUrl,
       ProjectDocumentsListTable,
       ProjectApprovalListTable,
-      ProjectInvoiceListTable
+      ProjectInvoiceListTable,
+      MilestonesListTable
     };
   },
-  components: { HeaderList, ProjectListTable, RiskIssuesListTable, ScheduleListTable, ProjectDocumentsListTable, ProjectApprovalListTable, ProjectInvoiceListTable }
+  components: { HeaderList, ProjectListTable, RiskIssuesListTable, ScheduleListTable, ProjectDocumentsListTable, ProjectApprovalListTable, ProjectInvoiceListTable, StakeholdersListTable, MilestonesListTable }
 };
 </script>
 
@@ -220,13 +228,14 @@ props: {
                   <div v-if="openInvoiceList">
                     <ProjectInvoiceListTable :hostUrl="hostUrl" />
                   </div>
+                  <div v-if="openStakeholdersList">
+                    <StakeholdersListTable :hostUrl="hostUrl" />
+                  </div>
+                  <div v-if="openMilestoneList">
+                    <MilestonesListTable :hostUrl="hostUrl" />
+                  </div>
                 </div>
-             
-
-
-
-
-                <!-- --------- table for  risk & Issues  list-  -->
+ <!-- --------- table for  risk & Issues  list-  -->
               </div>
             </div>
           </div>

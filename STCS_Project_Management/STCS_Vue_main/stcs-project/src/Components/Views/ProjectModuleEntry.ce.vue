@@ -2,7 +2,6 @@
   <div>
     <HeaderList />
     <component :is="CurrentPage.fileName" :url="projectHostUrl" />
-    <button @click="check">click</button>
   </div>
 </template>
 

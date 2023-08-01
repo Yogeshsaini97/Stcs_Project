@@ -9,6 +9,8 @@ import Schedule from './Schedule/Schedule.vue';
 import ProjectDocuments from './Documents/ProjectDocuments.ce.vue';
 import ProjectApproval from './Approvals/ProjectApproval.ce.vue';
 import ProjectInvoice from './Invoices/ProjectInvoice.ce.vue';
+import Stakeholders from './Stakeholders/Stakeholders.ce.vue';
+import Milestone from './Milestones/Milestone.ce.vue';
 
 
 const ProjectApiId = inject('ProjectApiId');
@@ -96,7 +98,9 @@ provide("no_of_Risks", no_of_Risks);
       </div>
     </Tab>
     <Tab title="Milestones" id="Milestones">
-      Cras scelerisque, dolor vitae suscipit efficitur, risus orci sagittis velit, ac molestie nulla tortor id augue.
+      <div v-if="ProjectGetOneData">
+        <Milestone />
+      </div>
     </Tab>
     <Tab title="Risk & Issues" id="Risk_&_Issues">
       <div v-if="ProjectGetOneData">
@@ -121,7 +125,10 @@ provide("no_of_Risks", no_of_Risks);
       </div>
     </Tab>
     <Tab title="Stakeholders">
-      Aenean varius dui eget ante finibus, sit amet finibus nisi facilisis. Nunc pellentesque, risus et pretium hendrerit.
+      <div v-if="ProjectGetOneData">
+        <Stakeholders />
+      </div>
+      
     </Tab>
     <Tab title="Schedule">
       <div v-if="ProjectGetOneData">
