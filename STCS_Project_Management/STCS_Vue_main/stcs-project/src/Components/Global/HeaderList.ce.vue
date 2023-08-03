@@ -5,7 +5,7 @@
       <div class="row" style="align-items: flex-start;justify-content: space-between;"> 
         <div class="d-flex">
           <a href="javascript:void(0)" class="btn btn-primary align-center rounded-10" @click="BackButton()"><img
-              src="http://localhost:8080/documents/d/guest/angle-right-white" alt="img" /></a>
+            :src=angleRightWhiteMethod() alt="img" /></a>
           <div class="ml-3">
             <h4 class="mb-0">Projects</h4>
 
@@ -40,7 +40,8 @@
 <script setup>
 import { inject, ref } from 'vue';
 import ProgressBarCe from './ProgressBar.ce.vue';
-
+import config from "../../hooks/config.js"
+const [API_END_POINT] = config();
 
 
 const CurrentPage = inject('CurrentPage');
@@ -53,6 +54,10 @@ const ProcessBarReactive = inject('ProcessBarReactive');
 const breadcrumbs = inject('breadcrumbs');
 const BackButton = inject('BackButton');
 /////////////code fot  breadcrumbs end here //////////
+function angleRightWhiteMethod() {
+  // Your method logic here
+  return this.API_END_POINT + "documents/d/guest/angle-right-white";
+}
 
 </script>
 

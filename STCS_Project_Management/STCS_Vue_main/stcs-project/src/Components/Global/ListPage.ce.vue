@@ -38,13 +38,14 @@ props: {
     },
     maxDisplayedPages: {
       type: Number,
-      default: 5,
+      default: 1,
     },
   },
   setup(props, context) {
+    console.log("props",props);
     const userList = ref([]);
     const searchTerm = ref("");
-    const pageSize = ref(6);
+    const pageSize = ref(props.itemsPerPage);
     const currentPage = ref(1);
     const hostUrl = props.url;
     const keyName = props.keyName;
@@ -59,19 +60,19 @@ props: {
     const breadcrumbs = inject('breadcrumbs');
     const ChangePage = inject("ChangePage");
     const datacheck = inject('datacheck');
+    const lastPageNumber=ref(1);
 
     onMounted(async () => {
       try {
         const response = await fetchData(hostUrl + `&pageSize=${pageSize.value}`);
         userList.value = response.items;
+        lastPageNumber.value=response.lastPage?response.lastPage:0;
       }
       catch (error) {
         console.error(error);
       }
     });
-
     datacheck.value=userList
-    console.log(userList)
     provide("userList", userList);
     
     async function handleSearch() {
@@ -186,7 +187,8 @@ props: {
       ProjectDocumentsListTable,
       ProjectApprovalListTable,
       ProjectInvoiceListTable,
-      MilestonesListTable
+      MilestonesListTable,
+      lastPageNumber
     };
   },
   components: { HeaderList, ProjectListTable, RiskIssuesListTable, ScheduleListTable, ProjectDocumentsListTable, ProjectApprovalListTable, ProjectInvoiceListTable, StakeholdersListTable, MilestonesListTable }
@@ -252,7 +254,7 @@ props: {
     <!-- '''''' pagination  -->
 
 
-    <div class="pagination">
+    <div class="pagination" v-if="lastPageNumber!==1">
       <button @click="previousPage" :disabled="currentPage === 1" style="    background-color: white;
       border: none;">
         Prev
@@ -268,7 +270,7 @@ props: {
           </button>
         </template>
       </div>
-      <button @click="nextPage" :disabled="currentPage === totalPages" style="    background-color: white;
+      <button @click="nextPage" :disabled="currentPage === lastPageNumber" style="    background-color: white;
       border: none;">
         Next
       </button>

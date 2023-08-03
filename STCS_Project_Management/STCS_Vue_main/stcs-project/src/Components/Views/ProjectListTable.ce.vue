@@ -111,8 +111,6 @@ const ChangePage = inject("ChangePage");
 const breadcrumbs = inject('breadcrumbs');
 const userList = inject('userList');
 const ProjectApiId = inject("ProjectApiId");
-
-
 const isOpen = ref(false);
 const selectedOption = ref(dropdownOptions[0]);
   
