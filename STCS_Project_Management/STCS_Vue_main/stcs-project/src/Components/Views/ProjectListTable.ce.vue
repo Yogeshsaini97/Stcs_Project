@@ -1,9 +1,8 @@
 <template>
-
-    <div> 
-        <div class="beautiful-dropdown" style="position: absolute;
-        top: -7rem;
-        right: 12rem;
+  <div> 
+    <div class="beautiful-dropdown" style="position: absolute;
+        top: -8.5rem;
+        right: 14rem;
         z-index: 10;
         ">
             <a  @click="toggleDropdown" href="javascript:void(0)" class="btn dropdown-button btn-primary align-center rounded-10"><img
@@ -18,13 +17,12 @@
        
         </div>
         <DownloadToExcel style="position: absolute;
-        top: -7rem;
-        right: 9rem;
+        top: -8.5rem;
+        right: 10rem;
         z-index: 10;
         "/>
-  
-       
-    <table class="table font-weight-600">
+
+        <table class="table font-weight-600">
  <thead>
             <tr>
                 <th>Status</th>
@@ -88,7 +86,7 @@
   
 
 <script setup>
-import { inject, provide, ref } from 'vue';
+import { inject,  ref } from 'vue';
 import { ChangeDateFormat,fetchData } from '../../Utils/Utils';
 import ProjectTabs from "./ProjectTabs.ce.vue"
 import DownloadToExcel from '../Global/DownloadToExcel.ce.vue';

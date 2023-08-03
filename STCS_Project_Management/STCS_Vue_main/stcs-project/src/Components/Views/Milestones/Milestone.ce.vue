@@ -29,7 +29,7 @@ const milestonesUrl = `http://localhost:8080/o/c/milestones/?p_auth=${Liferay.au
       <div class="card bg-light shadow-none rounded-0 mnh-140p mt-4">
         <div class="card-body">
           <p class="mb-0 font-40 text-default">2<span class="font-20">/8</span></p>
-          <p class="mb-0">Current milestone<img src="../assets/images/arrow-up" class="ml-1 w-15p" alt="img" /></p>
+          <p class="mb-0">Current milestone<img src="http://localhost:8080/documents/d/guest/arrow-up" class="ml-1 w-15p" alt="img" /></p>
           <p class="mb-0 font-8 opacity-60">Click to view more</p>
         </div>
       </div>

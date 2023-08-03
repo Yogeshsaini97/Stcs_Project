@@ -54,7 +54,7 @@ right:20px;"/>
         </td>
         <td>{{ ChangeDateFormat(item.startDate) }}</td>
         <td>{{ ChangeDateFormat(item.endDate) }}</td>
-        <td><a href="javascript:void(0)"><img src="../assets/images/angle-down.svg"
+        <td><a href="javascript:void(0)"><img src="http://localhost:8080/documents/d/guest/angle-down"
               alt="img" /></a></td>
       </tr>
       

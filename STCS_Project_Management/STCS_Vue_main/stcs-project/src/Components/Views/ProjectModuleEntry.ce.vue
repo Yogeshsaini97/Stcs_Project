@@ -15,7 +15,7 @@ provide('datacheck', datacheck);
 
 console.log(datacheck)
 
-const projectHostUrl = `http://localhost:8080/o/c/projectts/?p_auth=${Liferay.authToken}`;
+const projectHostUrl = `/o/c/projectts/?p_auth=${Liferay.authToken}`;
 
 
 ///////////////

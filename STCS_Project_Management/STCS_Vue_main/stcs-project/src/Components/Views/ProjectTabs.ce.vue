@@ -1,5 +1,5 @@
 <script setup>
-import { createApp, inject, onMounted, provide, ref } from 'vue'
+import { inject, onMounted, provide, ref } from 'vue'
 import Tabs from "../Tabs/Tabs.vue"
 import Tab from "../Tabs/Tab.vue"
 import Overview from "./Overview/Overview.vue"
