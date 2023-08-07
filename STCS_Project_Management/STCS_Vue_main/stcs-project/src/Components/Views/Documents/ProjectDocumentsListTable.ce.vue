@@ -97,7 +97,7 @@ right:20px;"/>
             <td>{{ item.documentName }}<br /><span class="font-weight-400">STCS - {{ item.id }}</span></td>
             <td>{{ item.creator.name }}<br /><span class="font-weight-400">STCS - {{ item.creator.contentType }}</span></td>
             <td>{{ ChangeDateFormat(item.dateCreated) }}</td>
-            <td><a :href="`http://localhost:8080/${item.attachment.link.href}`"><img src="http://localhost:8080/documents/d/guest/arrow-up" alt="img" /></a></td>
+            <td><a :href="`/${item.attachment.link.href}`"><img src="http://localhost:8080/documents/d/guest/arrow-up" alt="img" /></a></td>
           </tr>
           
         </tbody>

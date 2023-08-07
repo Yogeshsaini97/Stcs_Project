@@ -13,7 +13,7 @@ const no_of_Risks = inject("no_of_Risks");
 
 const ProjectApiId = inject("ProjectApiId");
 
-const stakeholdersUrl = `http://localhost:8080/o/c/stakeholders/?p_auth=${Liferay.authToken}&filter=r_withStakeholder_c_projecttId    eq '${ProjectApiId.value}'`;
+const stakeholdersUrl = `/o/c/stakeholders/?p_auth=${Liferay.authToken}&filter=r_withStakeholder_c_projecttId    eq '${ProjectApiId.value}'`;
 
 
 

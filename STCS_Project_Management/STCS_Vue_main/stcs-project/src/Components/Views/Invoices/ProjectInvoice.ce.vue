@@ -10,7 +10,7 @@ const no_of_Issues = inject("no_of_Issues");
 const no_of_Risks = inject("no_of_Risks");
 const ProjectApiId = inject("ProjectApiId");
 
-const InvoicesUrl = `http://localhost:8080/o/c/invoices/?p_auth=${Liferay.authToken}&filter=r_withInvoice_c_projecttId eq '${ProjectApiId.value}'`;
+const InvoicesUrl = `/o/c/invoices/?p_auth=${Liferay.authToken}&filter=r_withInvoice_c_projecttId eq '${ProjectApiId.value}'`;
 
 
 

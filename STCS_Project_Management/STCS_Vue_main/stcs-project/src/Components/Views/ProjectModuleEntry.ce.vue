@@ -104,12 +104,7 @@ provide('ChangePage', ChangePage);
 ///
 
 
-const check=()=>
-{
 
-console.log(datacheck)
-
-}
 
 
 

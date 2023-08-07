@@ -1,8 +1,9 @@
 <template>
   <div> 
     <div class="beautiful-dropdown" style="position: absolute;
-        top: -8.5rem;
-        right: 14rem;
+    top: -7.5rem;
+    right: 18rem;
+
         z-index: 10;
         ">
             <a  @click="toggleDropdown" href="javascript:void(0)" class="btn dropdown-button btn-primary align-center rounded-10"><img
@@ -17,8 +18,8 @@
        
         </div>
         <DownloadToExcel style="position: absolute;
-        top: -8.5rem;
-        right: 10rem;
+        top: -7.5rem;
+        right: 12rem;
         z-index: 10;
         "/>
 
