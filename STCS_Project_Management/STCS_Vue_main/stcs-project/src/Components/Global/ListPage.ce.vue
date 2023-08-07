@@ -34,7 +34,7 @@ props: {
     },
     itemsPerPage: {
       type: Number,
-      default: 10,
+      default: 1,
     },
     maxDisplayedPages: {
       type: Number,
