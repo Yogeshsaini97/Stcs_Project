@@ -34,7 +34,7 @@ props: {
     },
     itemsPerPage: {
       type: Number,
-      default: 10,
+      default: 1,
     },
     maxDisplayedPages: {
       type: Number,
@@ -44,7 +44,7 @@ props: {
   setup(props, context) {
     const userList = ref([]);
     const searchTerm = ref("");
-    const pageSize = ref(6);
+    const pageSize = ref(props.itemsPerPage);
     const currentPage = ref(1);
     const hostUrl = props.url;
     const keyName = props.keyName;
@@ -59,11 +59,12 @@ props: {
     const breadcrumbs = inject('breadcrumbs');
     const ChangePage = inject("ChangePage");
     const datacheck = inject('datacheck');
-
+    const lastPageNumber=ref(1);
     onMounted(async () => {
       try {
         const response = await fetchData(hostUrl + `&pageSize=${pageSize.value}`);
         userList.value = response.items;
+        lastPageNumber.value=response.lastPage?response.lastPage:1;
       }
       catch (error) {
         console.error(error);
@@ -75,8 +76,10 @@ props: {
     provide("userList", userList);
     
     async function handleSearch() {
-      const response = await fetchData(hostUrl + `&search=${searchTerm.value}`);
+      const response = await fetchData(hostUrl + `&pageSize=${pageSize.value}&search=${searchTerm.value}`);
       userList.value = response.items;
+      lastPageNumber.value=response.lastPage?response.lastPage:1;
+
     }
     // ------------------
     const totalPages = computed(() => Math.ceil(20 / 2));
@@ -86,10 +89,10 @@ props: {
     }
     const displayedPages = computed(() => {
       const pages = [];
-      if (totalPages.value <= props.maxDisplayedPages) {
+      if (lastPageNumber.value <= props.maxDisplayedPages) {
         // If the total number of pages is less than or equal to the max displayed pages,
         // display all pages without any dots
-        for (let page = 1; page <= totalPages.value; page++) {
+        for (let page = 1; page <= lastPageNumber.value; page++) {
           pages.push(page);
         }
       }
@@ -186,7 +189,8 @@ props: {
       ProjectDocumentsListTable,
       ProjectApprovalListTable,
       ProjectInvoiceListTable,
-      MilestonesListTable
+      MilestonesListTable,
+      lastPageNumber
     };
   },
   components: { HeaderList, ProjectListTable, RiskIssuesListTable, ScheduleListTable, ProjectDocumentsListTable, ProjectApprovalListTable, ProjectInvoiceListTable, StakeholdersListTable, MilestonesListTable }
@@ -252,7 +256,7 @@ props: {
     <!-- '''''' pagination  -->
 
 
-    <div class="pagination">
+    <div class="pagination" v-if="lastPageNumber!==1">
       <button @click="previousPage" :disabled="currentPage === 1" style="    background-color: white;
       border: none;">
         Prev
@@ -268,7 +272,7 @@ props: {
           </button>
         </template>
       </div>
-      <button @click="nextPage" :disabled="currentPage === totalPages" style="    background-color: white;
+      <button @click="nextPage" :disabled="currentPage === lastPageNumber" style="    background-color: white;
       border: none;">
         Next
       </button>
