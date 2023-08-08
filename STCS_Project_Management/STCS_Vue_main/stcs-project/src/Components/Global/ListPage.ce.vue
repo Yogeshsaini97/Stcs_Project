@@ -84,6 +84,7 @@ props: {
 
     }
     // ------------------
+
     const totalPages = computed(() => Math.ceil(20 / 2));
     async function urlEmbed(CurrentPage) {
       const response = await fetchData(hostUrl + `&page=${CurrentPage}&pageSize=${pageSize.value}&search=${searchTerm.value}`);
@@ -259,7 +260,7 @@ props: {
 
 
     <div class="pagination" v-if="lastPageNumber!==1">
-      <button @click="previousPage" :disabled="currentPage === 1" style="    background-color: white;
+      <button @click="previousPage" :disabled="currentPage === 1" :class="currentPage === 1?'colorgrey':'colorRed'" style="    background-color: white;
       border: none;">
         Prev
       </button>
@@ -268,13 +269,13 @@ props: {
           <span class="dots">...</span>
         </template>
         <template v-else>
-          <button @click="changePage(page)" :class="{ active: currentPage === page }" style="    background-color: white;
+          <button @click="changePage(page)"  :class="currentPage === page?'colorBlue':''"  style="    background-color: white;
           border: none;">
             {{ page }}
           </button>
         </template>
       </div>
-      <button @click="nextPage" :disabled="currentPage === lastPageNumber" style="    background-color: white;
+      <button @click="nextPage" :disabled="currentPage === lastPageNumber" :class="currentPage === lastPageNumber?'colorgrey':'colorRed'"  style="    background-color: white;
       border: none;">
         Next
       </button>

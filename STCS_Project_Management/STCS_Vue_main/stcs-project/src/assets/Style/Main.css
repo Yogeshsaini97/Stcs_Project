@@ -35,7 +35,17 @@
   }
 
 
-
+  .colorRed
+  {
+    color:red;
+  }
+  .colorgrey
+  {
+    color:grey
+  }.colorBlue
+  {
+    color:blue;
+  }
   
   .stcsmain
   {
