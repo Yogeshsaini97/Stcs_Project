@@ -114,7 +114,7 @@ const ProjectApiId = inject("ProjectApiId");
 
 const isOpen = ref(false);
 const selectedOption = ref(dropdownOptions[0]);
-  
+const pageSizeNum=inject('pageSizeNum');
 
     function toggleDropdown() {
       isOpen.value = !isOpen.value;
@@ -123,11 +123,11 @@ const selectedOption = ref(dropdownOptions[0]);
     async function selectOption(option) {
       selectedOption.value = option;
       let newUrl;
-      newUrl=props.hostUrl + `&filter=statusActive eq '${option}'`;
+      newUrl=props.hostUrl + `&pageSize=${pageSizeNum}&filter=statusActive eq '${option}'`;
      
       if(option=="All")
       {
-        newUrl= props.hostUrl + `&filter=`;
+        newUrl= props.hostUrl + `&pageSize=${pageSizeNum}&filter=`;
         console.log("heyy")
       }
       const response = await fetchData(newUrl);

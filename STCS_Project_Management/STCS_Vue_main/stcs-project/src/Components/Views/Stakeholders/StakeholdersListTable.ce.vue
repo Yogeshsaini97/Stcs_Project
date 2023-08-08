@@ -73,7 +73,6 @@ const userList = inject('userList');
 const ProjectApiId = inject("ProjectApiId");
 const isOpen = ref(false);
 const selectedOption = ref(dropdownOptions[0]);
-  
 
     function toggleDropdown() {
       isOpen.value = !isOpen.value;

@@ -11,8 +11,9 @@
 @import 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css';
 </style> 
 <script setup>
+import { provide } from "vue";
 import ProjectModuleEntry from "./Components/Views/ProjectModuleEntry.ce.vue"
-
+provide("pageSizeNum",1);
 
 </script>
 

@@ -7,8 +7,9 @@ import listpage from "../../Global/ListPage.ce.vue"
 
 const ProjectGetOneData = inject("ProjectGetOneData");
 const ProjectApiId = inject("ProjectApiId");
+const pageSizeNum=inject('pageSizeNum');
 
-const ScheduleUrl = `/o/c/projectschedules/?p_auth=${Liferay.authToken}&filter=r_withSchedule_c_projecttId eq '${ProjectApiId.value}'`;
+const ScheduleUrl = `http://localhost:8080/o/c/projectschedules/?p_auth=${Liferay.authToken}&pageSize=${pageSizeNum}&filter=r_withSchedule_c_projecttId eq '${ProjectApiId.value}'`;
 
 
 

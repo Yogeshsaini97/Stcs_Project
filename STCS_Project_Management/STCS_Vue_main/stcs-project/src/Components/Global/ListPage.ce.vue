@@ -42,9 +42,10 @@ props: {
     },
   },
   setup(props, context) {
+    const pageSizeNum=inject('pageSizeNum');
     const userList = ref([]);
     const searchTerm = ref("");
-    const pageSize = ref(props.itemsPerPage);
+    const pageSize = ref(pageSizeNum);
     const currentPage = ref(1);
     const hostUrl = props.url;
     const keyName = props.keyName;
@@ -60,6 +61,7 @@ props: {
     const ChangePage = inject("ChangePage");
     const datacheck = inject('datacheck');
     const lastPageNumber=ref(1);
+    
     onMounted(async () => {
       try {
         const response = await fetchData(hostUrl + `&pageSize=${pageSize.value}`);

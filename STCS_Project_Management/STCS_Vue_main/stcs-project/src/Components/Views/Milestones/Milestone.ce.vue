@@ -11,7 +11,9 @@ const ProjectGetOneData = inject("ProjectGetOneData");
 const no_of_Issues = inject("no_of_Issues");
 const no_of_Risks = inject("no_of_Risks");
 const ProjectApiId = inject("ProjectApiId");
-const milestonesUrl = `/o/c/milestones/?p_auth=${Liferay.authToken}&filter=r_withMilestone_c_projecttId eq '${ProjectApiId.value}'`;
+const pageSizeNum=inject('pageSizeNum');
+
+const milestonesUrl = `http://localhost:8080/o/c/milestones/?p_auth=${Liferay.authToken}&pageSize=${pageSizeNum}&filter=r_withMilestone_c_projecttId eq '${ProjectApiId.value}'`;
 
 </script>
 

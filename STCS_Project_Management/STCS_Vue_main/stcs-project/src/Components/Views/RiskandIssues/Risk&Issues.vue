@@ -12,8 +12,9 @@ const no_of_Issues = inject("no_of_Issues");
 const no_of_Risks = inject("no_of_Risks");
 
 const ProjectApiId = inject("ProjectApiId");
+const pageSizeNum=inject('pageSizeNum');
 
-const RisknIssuesUrl = `/o/c/risksandissues/?p_auth=${Liferay.authToken}&filter=r_withRiskAndIssues_c_projecttId eq '${ProjectApiId.value}'`;
+const RisknIssuesUrl = `http://localhost:8080/o/c/risksandissues/?p_auth=${Liferay.authToken}&pageSize=${pageSizeNum}&filter=r_withRiskAndIssues_c_projecttId eq '${ProjectApiId.value}'`;
 
 
 
