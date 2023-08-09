@@ -134,13 +134,8 @@ props: {
     });
     async function changePage(page) {
       if (page >= 1 && page <= totalPages.value) {
-        currentPage.value = page;
-        //   const response = await fetchData(
-        //     `/o/c/projects/?p_auth=${Liferay.authToken}&page=${currentPage.value}&pageSize=${pageSize.value}&search=${searchTerm.value}`
-        //   );
-        //   userList.value = response.items;
-        // }
-        urlEmbed(currentPage.value);
+          currentPage.value = page;
+          urlEmbed(currentPage.value);
       }
     }
     async function previousPage() {

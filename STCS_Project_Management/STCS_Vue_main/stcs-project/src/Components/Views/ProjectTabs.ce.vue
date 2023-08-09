@@ -18,9 +18,7 @@ const ProjectApiId = inject('ProjectApiId');
 
 
 const ProjectGetOneData = ref(null);
-const api1Data = ref(null);
 const api2Data = ref(null);
-const api3Data = ref(null);
 const no_of_Risks = ref(0);
 const no_of_Issues = ref(0);
 
