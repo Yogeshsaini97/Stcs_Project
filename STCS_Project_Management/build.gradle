@@ -1,3 +1,0 @@
-createDockerContainer {
-	hostConfig.network = "host"
-}

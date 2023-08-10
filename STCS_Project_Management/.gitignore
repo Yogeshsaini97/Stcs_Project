@@ -10,6 +10,7 @@
 **/dist
 **/node_modules
 **/node_modules_cache
+**/yarn.lock
 **/test-coverage
 **/tmp
 **/.web_bundle_build
@@ -17,6 +18,7 @@
 .gradle
 .idea
 /bundles
+yarn.lock
 /gradle-*.properties
 /plugins-sdk/**/classes
 /plugins-sdk/**/ivy.xml.MD5

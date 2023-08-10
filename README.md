@@ -1,2 +1,0 @@
-# Stcs_Project
- project

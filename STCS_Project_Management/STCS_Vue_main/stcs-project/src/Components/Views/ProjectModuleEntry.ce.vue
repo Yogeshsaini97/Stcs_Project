@@ -51,10 +51,6 @@ const breadcrumbs = ref([
 provide('breadcrumbs', breadcrumbs);
 
 ///////////////code for breadcrumbs setting ending here /////////////////////
-
-
-
-
 ///////////////code for backbuton  start here /////////////////////
 
 const BackButton = () => {
