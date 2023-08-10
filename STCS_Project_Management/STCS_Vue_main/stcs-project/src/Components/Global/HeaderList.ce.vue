@@ -7,7 +7,7 @@
           <a href="javascript:void(0)" class="btn btn-primary align-center rounded-10" @click="BackButton()"><img
               src="http://localhost:8080/documents/d/guest/angle-right-white" alt="img" /></a>
           <div class="ml-3">
-            <h4 class="mb-0">Projects</h4>
+            <h4 class="mb-0">thursday</h4>
 
             <p class="breadcrumbmain mb-0 font-10">
               <li>Dashboard</li>
